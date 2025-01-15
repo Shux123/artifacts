@@ -1,0 +1,125 @@
+{
+  "gold": 8000,
+  "items": [
+    {
+      "code": "sap",
+      "quantity": 362
+    },
+    {
+      "code": "emerald_stone",
+      "quantity": 10
+    },
+    {
+      "code": "ruby_stone",
+      "quantity": 14
+    },
+    {
+      "code": "sapphire_stone",
+      "quantity": 15
+    },
+    {
+      "code": "egg",
+      "quantity": 298
+    },
+    {
+      "code": "raw_chicken",
+      "quantity": 212
+    },
+    {
+      "code": "algae",
+      "quantity": 12
+    },
+    {
+      "code": "topaz_stone",
+      "quantity": 20
+    },
+    {
+      "code": "apple",
+      "quantity": 649
+    },
+    {
+      "code": "wooden_staff",
+      "quantity": 1
+    },
+    {
+      "code": "enchanted_fabric",
+      "quantity": 2
+    },
+    {
+      "code": "ash_plank",
+      "quantity": 3
+    },
+    {
+      "code": "red_slimeball",
+      "quantity": 53
+    },
+    {
+      "code": "green_slimeball",
+      "quantity": 2
+    },
+    {
+      "code": "blue_slimeball",
+      "quantity": 88
+    },
+    {
+      "code": "copper",
+      "quantity": 14
+    },
+    {
+      "code": "spruce_plank",
+      "quantity": 8
+    },
+    {
+      "code": "raw_beef",
+      "quantity": 121
+    },
+    {
+      "code": "milk_bucket",
+      "quantity": 70
+    },
+    {
+      "code": "cowhide",
+      "quantity": 159
+    },
+    {
+      "code": "yellow_slimeball",
+      "quantity": 15
+    },
+    {
+      "code": "forest_ring",
+      "quantity": 5
+    },
+    {
+      "code": "serpent_skin",
+      "quantity": 44
+    },
+    {
+      "code": "flying_wing",
+      "quantity": 38
+    },
+    {
+      "code": "magical_cure",
+      "quantity": 2
+    },
+    {
+      "code": "tasks_coin",
+      "quantity": 17
+    },
+    {
+      "code": "mushroom",
+      "quantity": 34
+    },
+    {
+      "code": "feather",
+      "quantity": 19
+    },
+    {
+      "code": "iron",
+      "quantity": 294
+    },
+    {
+      "code": "emerald",
+      "quantity": 3
+    }
+  ]
+}
