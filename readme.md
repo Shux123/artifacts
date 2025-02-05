@@ -7,10 +7,3 @@ To start play you need to get token from the site and save it to token.txt file.
 To use/create/equip/uneqip item you need to write its code in lineedit and push the correct button.
 Script can be as one word with number to repeat action, for example: gathering 50, or it can be sequence of action with number to repeat, for example: fight fight fight rest 100.
 For some items there must be also written slot for that item, for example: iron_ring ring1 1.
-
-
-14.01.2025
-I created "maps" function. Now you can see all maps locations.
-I created "find text" function. You can search for specific word in the text, for example you can easily see "apple" in bank.
-I made some minor changes and rewrote a few rows of code.
-

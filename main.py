@@ -25,6 +25,17 @@ from PySide6.QtWidgets import (
 
 FONT_SIZE = 18
 
+names_for_btns = {
+    'resource': ['Gathering'],
+    'monster': ['Fight'],
+    'workshop': ['Craft', 'Recycling'],
+    'bank': ['Deposit', 'Withdraw', 'Depo $', 'Withdraw $'],
+    'tasks_master': ['New task', 'Task trade', 'Complete task',
+        'Cancel task', 'Task exchange'],
+    'grand_exchange': [],
+    'santa_claus': []
+}
+
 class WorkerSignal(QObject):
     finished = Signal()
 
@@ -52,6 +63,7 @@ class MainWindow(QMainWindow):
         self.threadpool = QThreadPool()
 
         self.my_font = QFont('Times', FONT_SIZE)
+        self.btns_pointers = []
 
         self.name_label = QLabel(self.char.name)
         self.name_label.setFont(QFont('Times', FONT_SIZE+6))
@@ -99,10 +111,16 @@ class MainWindow(QMainWindow):
         self.info_view = QTextEdit()
         self.info_view.setFont(self.my_font)
         controls_layout.addWidget(self.info_view)
+
+        self.location_layout = QVBoxLayout()
+        self.location_label = QLabel()
+        self.location_label.setFont(self.my_font)
+        self.location_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.location_layout.addWidget(self.location_label)
         
         buttons = [
-            'Fight', 'Rest', 'Gathering', 'Logs', 'Maps', 'Char info', 
-            'Skills', 'Stats','Clothes', 'Inventory', 'Bank',
+            'Rest', 'Logs', 'Maps', 'Char info', 'Skills',
+            'Stats', 'Clothes', 'Inventory', 'Bank',
         ]
         for button in buttons:
             btn = QPushButton(button)
@@ -110,9 +128,8 @@ class MainWindow(QMainWindow):
             btns_layout.addWidget(btn)
             btn.pressed.connect(lambda btn=btn: self.get_info(btn=btn))
         
-        btns_widget = QWidget()
-        btns_widget.setLayout(btns_layout)
-        controls_layout.addWidget(btns_widget)
+        controls_layout.addLayout(self.location_layout)
+        controls_layout.addLayout(btns_layout)
 
         control_label = QLabel('Ask/use info/item by code:')
         control_label.setFont(self.my_font)
@@ -134,24 +151,13 @@ class MainWindow(QMainWindow):
 
         control_layout_3 = QHBoxLayout()
         buttons = [
-            'Craft', 'Equip', 'Unequip', 'Crafted by skills', 'Item info',
-            'Monster info', 'Use Item', 'Recycling', 'Delete item'
+            'Equip', 'Unequip', 'Crafted by skills', 'Item info',
+            'Monster info', 'Use Item', 'Delete item'
         ]
         for button in buttons:
             btn = QPushButton(button)
             btn.setFont(self.my_font)
             control_layout_3.addWidget(btn)
-            btn.pressed.connect(lambda btn=btn: self.get_info(btn=btn))
-
-        control_layout_4 = QHBoxLayout()
-        buttons = [
-            'Deposit', 'Withdraw', 'Depo $', 'Withdraw $', 'New task', 
-            'Task trade', 'Complete task', 'Cancel task', 'Task exchange'
-        ]
-        for button in buttons:
-            btn = QPushButton(button)
-            btn.setFont(self.my_font)
-            control_layout_4.addWidget(btn)
             btn.pressed.connect(lambda btn=btn: self.get_info(btn=btn))
 
         script_label = QLabel('Write script:')
@@ -180,16 +186,16 @@ class MainWindow(QMainWindow):
         self.main_v_layout.addLayout(controls_layout)
         self.main_v_layout.addLayout(control_layout_2)
         self.main_v_layout.addLayout(control_layout_3)
-        self.main_v_layout.addLayout(control_layout_4)
         self.main_v_layout.addLayout(script_layout)
 
         widget = QWidget()
         widget.setLayout(self.main_v_layout)
 
         self.setCentralWidget(widget)
-        self.setFixedSize(QSize(1200, 700))
+        self.setFixedSize(QSize(1100, 600))
 
         self.update_info()
+        self.get_info(action='map')
 
     def get_info(self, btn=None, action=None):
         if btn:
@@ -198,6 +204,7 @@ class MainWindow(QMainWindow):
             x = self.x_box.text()
             y = self.y_box.text()
             answer = getattr(self.char, action)(x, y)
+            self.update_location(answer, x, y)
         elif action in ('char info', 'skills', 'stats','clothes', 'inventory', 'bank'):
             answer = self.char.view_info_about_char(action)
         elif action in ('equip', 'unequip'):
@@ -243,6 +250,31 @@ class MainWindow(QMainWindow):
             worker.signals.finished.connect(self.script_start)
             self.threadpool.start(worker)
         self.update_info()
+
+    def update_location(self, answer, x, y):
+        if len(self.btns_pointers) > 0:
+            for btn in self.btns_pointers:
+                btn.setParent(None)
+                btn.deleteLater()
+            self.btns_pointers.clear()
+        if 'type' in answer:
+            name = answer['name']
+            type = answer['type']
+            code = answer['code']
+            self.location_label.setText(
+                '\n'.join(['Location:', name, f"x: {x}, y: {y}", type, code]))
+            
+            for button in names_for_btns[type]:
+                btn = QPushButton(button)
+                btn.setFont(self.my_font)
+                self.btns_pointers.append(btn)
+                self.location_layout.addWidget(btn)
+                btn.pressed.connect(lambda btn=btn: self.get_info(btn=btn))
+            
+        else:
+            self.location_label.setText(
+                '\n'.join(['Location:', answer['name'], f"x: {x}, y: {y}"]))
+
     
     def update_info(self):
         self.level_label.setText(f"lvl: {str(self.char.char_info['level'])}")

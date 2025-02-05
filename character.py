@@ -121,9 +121,12 @@ class Character:
             data.append(f"Cooldown: {str(response['data']['cooldown']['total_seconds'])}.")
             data.append(f"Moved to: {response['data']['destination']['name']}.")
             if response['data']['destination']['content']:
+                answer['type'] = response['data']['destination']['content']['type']
+                answer['code'] = response['data']['destination']['content']['code']
                 data.append(f"Content type: {str(response['data']['destination']['content']['type'])}.")
                 data.append(f"Content: {str(response['data']['destination']['content']['code'])}.")
             answer['new_data'] = data
+            answer['name'] = response['data']['destination']['name']
             cooldown = response['data']['cooldown']['total_seconds']
             answer['cooldown'] = cooldown
             return answer
@@ -203,9 +206,12 @@ class Character:
             data.append(f"X coordinate: {response['data']['x']}")
             data.append(f"Y coordinate: {response['data']['y']}")
             if response['data']['content']:
+                answer['type'] = response['data']['content']['type']
+                answer['code'] = response['data']['content']['code']
                 data.append(f"Content type: {str(response['data']['content']['type'])}.")
                 data.append(f"Content: {str(response['data']['content']['code'])}.")
             answer['new_data'] = data
+            answer['name'] = response['data']['name']
             return answer
 
     def gathering(self):
@@ -263,6 +269,31 @@ class Character:
                     text += '  ' + self.char_info['inventory'][i]['code']
                     text += ': ' + str(self.char_info['inventory'][i]['quantity'])
                     quantity += self.char_info['inventory'][i]['quantity']
+                    item = self.char_info['inventory'][i]['code']
+                    for i in range(len(self.items)):
+                        if self.items[i]['code'] == item:
+                            if self.items[i]['type'] in ('weapon', 'shield', 'helmet',
+                                'body_armor', 'leg_armor', 'boots', 'ring', 'amulet',
+                                'artifact'):
+                                text += f"\n           lvl: {self.items[i]['level']}"
+                                attack = []
+                                dmg = []
+                                res = []
+                                for eff in range(len(self.items[i]['effects'])):
+                                    values = list(self.items[i]['effects'][eff].values())
+                                    for val in values:
+                                        if 'attack' in str(val):
+                                            attack.append(val.replace('attack_', ''))
+                                        if 'dmg' in str(val):
+                                            dmg.append(val.replace('dmg_', ''))
+                                        if 'res' in str(val):
+                                            res.append(val.replace('res_', ''))
+                                if len(attack) != 0:
+                                    text += f"\n           attack: {', '.join(attack)}"
+                                if len(dmg) != 0:
+                                    text += f"\n           dmg: {', '.join(dmg)}"
+                                if len(res) != 0:
+                                    text += f"\n           res: {', '.join(res)}"
                     data.append(text)
             data.insert(1, f"Items in inventory: {quantity}\n")
         elif list_to_view == 'bank':
@@ -539,7 +570,7 @@ class Character:
                 self.bank['items'] = response['bank'][:-1]
             else:
                 self.bank['items'] = response['bank']
-            with open(f'json\\bank.json', 'w') as f:
+            with open(os.path.join(basedir, 'json', 'bank.json'), 'w') as f:
                 f.write(json.dumps(self.bank, indent=2))
             return answer
         

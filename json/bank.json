@@ -3,39 +3,39 @@
   "items": [
     {
       "code": "sap",
-      "quantity": 362
+      "quantity": 614
     },
     {
       "code": "emerald_stone",
-      "quantity": 10
+      "quantity": 28
     },
     {
       "code": "ruby_stone",
-      "quantity": 14
+      "quantity": 35
     },
     {
       "code": "sapphire_stone",
-      "quantity": 15
+      "quantity": 38
     },
     {
       "code": "egg",
-      "quantity": 298
+      "quantity": 751
     },
     {
       "code": "raw_chicken",
-      "quantity": 212
+      "quantity": 14
     },
     {
       "code": "algae",
-      "quantity": 12
+      "quantity": 52
     },
     {
       "code": "topaz_stone",
-      "quantity": 20
+      "quantity": 37
     },
     {
       "code": "apple",
-      "quantity": 649
+      "quantity": 806
     },
     {
       "code": "wooden_staff",
@@ -43,23 +43,11 @@
     },
     {
       "code": "enchanted_fabric",
-      "quantity": 2
-    },
-    {
-      "code": "ash_plank",
-      "quantity": 3
-    },
-    {
-      "code": "red_slimeball",
-      "quantity": 53
-    },
-    {
-      "code": "green_slimeball",
-      "quantity": 2
+      "quantity": 4
     },
     {
       "code": "blue_slimeball",
-      "quantity": 88
+      "quantity": 110
     },
     {
       "code": "copper",
@@ -67,59 +55,151 @@
     },
     {
       "code": "spruce_plank",
-      "quantity": 8
+      "quantity": 3
     },
     {
       "code": "raw_beef",
-      "quantity": 121
+      "quantity": 146
     },
     {
       "code": "milk_bucket",
-      "quantity": 70
-    },
-    {
-      "code": "cowhide",
-      "quantity": 159
-    },
-    {
-      "code": "yellow_slimeball",
-      "quantity": 15
+      "quantity": 80
     },
     {
       "code": "forest_ring",
-      "quantity": 5
+      "quantity": 9
     },
     {
       "code": "serpent_skin",
-      "quantity": 44
+      "quantity": 108
     },
     {
       "code": "flying_wing",
-      "quantity": 38
+      "quantity": 79
     },
     {
       "code": "magical_cure",
+      "quantity": 4
+    },
+    {
+      "code": "mushroom",
+      "quantity": 27
+    },
+    {
+      "code": "emerald",
+      "quantity": 5
+    },
+    {
+      "code": "topaz",
+      "quantity": 2
+    },
+    {
+      "code": "hardwood_plank",
+      "quantity": 189
+    },
+    {
+      "code": "steel",
+      "quantity": 12
+    },
+    {
+      "code": "skeleton_skull",
+      "quantity": 23
+    },
+    {
+      "code": "ruby",
       "quantity": 2
     },
     {
       "code": "tasks_coin",
-      "quantity": 17
+      "quantity": 48
     },
     {
-      "code": "mushroom",
-      "quantity": 34
+      "code": "cowhide",
+      "quantity": 20
     },
     {
       "code": "feather",
+      "quantity": 47
+    },
+    {
+      "code": "wolf_hair",
+      "quantity": 24
+    },
+    {
+      "code": "wolf_bone",
       "quantity": 19
     },
     {
       "code": "iron",
-      "quantity": 294
+      "quantity": 113
     },
     {
-      "code": "emerald",
-      "quantity": 3
+      "code": "raw_wolf_meat",
+      "quantity": 18
+    },
+    {
+      "code": "pig_skin",
+      "quantity": 53
+    },
+    {
+      "code": "sunflower",
+      "quantity": 885
+    },
+    {
+      "code": "gudgeon",
+      "quantity": 897
+    },
+    {
+      "code": "earth_boost_potion",
+      "quantity": 12
+    },
+    {
+      "code": "skeleton_bone",
+      "quantity": 29
+    },
+    {
+      "code": "frost_slimeball",
+      "quantity": 64
+    },
+    {
+      "code": "yellow_candy",
+      "quantity": 5
+    },
+    {
+      "code": "green_slimeball",
+      "quantity": 63
+    },
+    {
+      "code": "yellow_slimeball",
+      "quantity": 38
+    },
+    {
+      "code": "ash_plank",
+      "quantity": 1
+    },
+    {
+      "code": "shrimp",
+      "quantity": 480
+    },
+    {
+      "code": "red_slimeball",
+      "quantity": 17
+    },
+    {
+      "code": "ogre_eye",
+      "quantity": 6
+    },
+    {
+      "code": "ogre_skin",
+      "quantity": 14
+    },
+    {
+      "code": "birch_wood",
+      "quantity": 600
+    },
+    {
+      "code": "ash_wood",
+      "quantity": 240
     }
   ]
 }
