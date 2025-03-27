@@ -8,7 +8,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 75
       }
     ],
@@ -30,12 +30,16 @@
     "code": "copper_dagger",
     "level": 1,
     "type": "weapon",
-    "subtype": "dagger",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_air",
-        "value": 8
+        "code": "attack_air",
+        "value": 6
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
       }
     ],
     "craft": {
@@ -82,24 +86,12 @@
     "description": "",
     "effects": [
       {
-        "name": "res_water",
-        "value": 2
+        "code": "hp",
+        "value": 10
       },
       {
-        "name": "res_earth",
-        "value": 2
-      },
-      {
-        "name": "res_fire",
-        "value": 2
-      },
-      {
-        "name": "res_air",
-        "value": 2
-      },
-      {
-        "name": "haste",
-        "value": 2
+        "code": "wisdom",
+        "value": 10
       }
     ],
     "craft": {
@@ -120,7 +112,7 @@
     "code": "egg",
     "level": 1,
     "type": "resource",
-    "subtype": "food",
+    "subtype": "mob",
     "description": "",
     "effects": [],
     "craft": null,
@@ -135,23 +127,11 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 20
       },
       {
-        "name": "dmg_water",
-        "value": 3
-      },
-      {
-        "name": "dmg_earth",
-        "value": 3
-      },
-      {
-        "name": "dmg_fire",
-        "value": 3
-      },
-      {
-        "name": "dmg_air",
+        "code": "dmg",
         "value": 3
       }
     ],
@@ -188,7 +168,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 80
       }
     ],
@@ -252,7 +232,7 @@
       "items": [
         {
           "code": "copper_ore",
-          "quantity": 8
+          "quantity": 10
         }
       ],
       "quantity": 1
@@ -268,19 +248,19 @@
     "description": "",
     "effects": [
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 2
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 2
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 2
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 2
       }
     ],
@@ -302,12 +282,16 @@
     "code": "wooden_staff",
     "level": 1,
     "type": "weapon",
-    "subtype": "staff",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 8
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -336,19 +320,7 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_air",
-        "value": 2
-      },
-      {
-        "name": "dmg_earth",
-        "value": 2
-      },
-      {
-        "name": "dmg_water",
-        "value": 2
-      },
-      {
-        "name": "dmg_fire",
+        "code": "dmg",
         "value": 2
       }
     ],
@@ -379,7 +351,7 @@
       "items": [
         {
           "code": "ash_wood",
-          "quantity": 8
+          "quantity": 10
         }
       ],
       "quantity": 1
@@ -391,12 +363,16 @@
     "code": "wooden_stick",
     "level": 1,
     "type": "weapon",
-    "subtype": "staff",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 4
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": null,
@@ -411,7 +387,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 50
       }
     ],
@@ -446,15 +422,15 @@
     "level": 1,
     "type": "consumable",
     "subtype": "bag",
-    "description": "Use the item to receive 1500 gold.",
+    "description": "Use the item to receive 2500 gold.",
     "effects": [
       {
-        "name": "gold",
-        "value": 1500
+        "code": "gold",
+        "value": 2500
       }
     ],
     "craft": null,
-    "tradeable": false
+    "tradeable": true
   },
   {
     "name": "Small Bag of Gold",
@@ -462,106 +438,26 @@
     "level": 1,
     "type": "consumable",
     "subtype": "bag",
-    "description": "Use the item to receive 750 gold.",
+    "description": "Use the item to receive 1000 gold.",
     "effects": [
       {
-        "name": "gold",
-        "value": 750
-      }
-    ],
-    "craft": null,
-    "tradeable": false
-  },
-  {
-    "name": "Yellow Candy",
-    "code": "yellow_candy",
-    "level": 1,
-    "type": "utility",
-    "subtype": "candy",
-    "description": "Gives 10% earth resistance and 10% earth damage at the start of fight.",
-    "effects": [
-      {
-        "name": "boost_res_earth",
-        "value": 10
-      },
-      {
-        "name": "boost_dmg_earth",
-        "value": 10
+        "code": "gold",
+        "value": 1000
       }
     ],
     "craft": null,
     "tradeable": true
   },
   {
-    "name": "Red Candy",
-    "code": "red_candy",
+    "name": "Golden Egg",
+    "code": "golden_egg",
     "level": 1,
-    "type": "utility",
-    "subtype": "candy",
-    "description": "Gives 10% fire resistance and 10% fire damage at the start of fight.",
-    "effects": [
-      {
-        "name": "boost_res_fire",
-        "value": 10
-      },
-      {
-        "name": "boost_dmg_fire",
-        "value": 10
-      }
-    ],
-    "craft": null,
-    "tradeable": true
-  },
-  {
-    "name": "Green Candy",
-    "code": "green_candy",
-    "level": 1,
-    "type": "utility",
-    "subtype": "candy",
-    "description": "Gives 10% air resistance and 10% air damage at the start of fight.",
-    "effects": [
-      {
-        "name": "boost_res_air",
-        "value": 10
-      },
-      {
-        "name": "boost_dmg_air",
-        "value": 10
-      }
-    ],
-    "craft": null,
-    "tradeable": true
-  },
-  {
-    "name": "Blue Candy",
-    "code": "blue_candy",
-    "level": 1,
-    "type": "utility",
-    "subtype": "candy",
-    "description": "Gives 10% water resistance and 10% water damage at the start of fight.",
-    "effects": [
-      {
-        "name": "boost_res_water",
-        "value": 10
-      },
-      {
-        "name": "boost_dmg_water",
-        "value": 10
-      }
-    ],
-    "craft": null,
-    "tradeable": true
-  },
-  {
-    "name": "Gift",
-    "code": "gift",
-    "level": 1,
-    "type": "currency",
-    "subtype": "",
-    "description": "Return to Santa Claus to exchange the gift and get a reward.",
+    "type": "resource",
+    "subtype": "mob",
+    "description": "",
     "effects": [],
     "craft": null,
-    "tradeable": false
+    "tradeable": true
   },
   {
     "name": "Recall Potion",
@@ -572,29 +468,15 @@
     "description": "Use the item to teleport you to the spawn.",
     "effects": [
       {
-        "name": "teleport_x",
+        "code": "teleport_x",
         "value": 0
       },
       {
-        "name": "teleport_y",
+        "code": "teleport_y",
         "value": 0
       }
     ],
-    "craft": {
-      "skill": "alchemy",
-      "level": 1,
-      "items": [
-        {
-          "code": "maple_sap",
-          "quantity": 1
-        },
-        {
-          "code": "nettle_leaf",
-          "quantity": 1
-        }
-      ],
-      "quantity": 1
-    },
+    "craft": null,
     "tradeable": true
   },
   {
@@ -606,29 +488,15 @@
     "description": "Use the item to teleport you to the south bank.",
     "effects": [
       {
-        "name": "teleport_x",
+        "code": "teleport_x",
         "value": 7
       },
       {
-        "name": "teleport_y",
+        "code": "teleport_y",
         "value": 13
       }
     ],
-    "craft": {
-      "skill": "alchemy",
-      "level": 1,
-      "items": [
-        {
-          "code": "strangold",
-          "quantity": 1
-        },
-        {
-          "code": "glowstem_leaf",
-          "quantity": 1
-        }
-      ],
-      "quantity": 1
-    },
+    "craft": null,
     "tradeable": true
   },
   {
@@ -662,23 +530,11 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 25
       },
       {
-        "name": "dmg_water",
-        "value": 2
-      },
-      {
-        "name": "dmg_earth",
-        "value": 2
-      },
-      {
-        "name": "dmg_fire",
-        "value": 2
-      },
-      {
-        "name": "dmg_air",
+        "code": "dmg",
         "value": 2
       }
     ],
@@ -704,19 +560,19 @@
     "code": "feather_coat",
     "level": 5,
     "type": "body_armor",
-    "subtype": "coat",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 25
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 5
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 5
       }
     ],
@@ -742,12 +598,16 @@
     "code": "fire_staff",
     "level": 5,
     "type": "weapon",
-    "subtype": "staff",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_fire",
+        "code": "attack_fire",
         "value": 16
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -787,7 +647,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 150
       }
     ],
@@ -813,15 +673,15 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 25
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 5
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 5
       }
     ],
@@ -862,7 +722,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 150
       }
     ],
@@ -884,12 +744,16 @@
     "code": "sticky_dagger",
     "level": 5,
     "type": "weapon",
-    "subtype": "dagger",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_air",
-        "value": 16
+        "code": "attack_air",
+        "value": 12
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
       }
     ],
     "craft": {
@@ -914,12 +778,16 @@
     "code": "sticky_sword",
     "level": 5,
     "type": "weapon",
-    "subtype": "sword",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 16
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -948,7 +816,7 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 30
       }
     ],
@@ -974,12 +842,16 @@
     "code": "water_bow",
     "level": 5,
     "type": "weapon",
-    "subtype": "bow",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_water",
+        "code": "attack_water",
         "value": 16
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
       }
     ],
     "craft": {
@@ -1008,7 +880,7 @@
     "description": "Restores 20HP at the start of the turn if the player has lost more than 50% of his health points.",
     "effects": [
       {
-        "name": "restore",
+        "code": "restore",
         "value": 20
       }
     ],
@@ -1019,6 +891,40 @@
         {
           "code": "sunflower",
           "quantity": 3
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Satchel",
+    "code": "satchel",
+    "level": 5,
+    "type": "bag",
+    "subtype": "",
+    "description": "Increase your inventory space by 15.",
+    "effects": [
+      {
+        "code": "inventory_space",
+        "value": 15
+      }
+    ],
+    "craft": {
+      "skill": "gearcrafting",
+      "level": 5,
+      "items": [
+        {
+          "code": "cowhide",
+          "quantity": 5
+        },
+        {
+          "code": "feather",
+          "quantity": 2
+        },
+        {
+          "code": "jasper_crystal",
+          "quantity": 1
         }
       ],
       "quantity": 1
@@ -1067,15 +973,15 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 20
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 5
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 5
       }
     ],
@@ -1109,19 +1015,19 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 40
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 5
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 5
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 3
       }
     ],
@@ -1147,12 +1053,16 @@
     "code": "iron_sword",
     "level": 10,
     "type": "weapon",
-    "subtype": "sword",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 24
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -1181,19 +1091,19 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 40
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 5
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 5
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 3
       }
     ],
@@ -1234,7 +1144,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 150
       }
     ],
@@ -1260,23 +1170,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 50
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 8
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 8
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 2
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 2
       }
     ],
@@ -1298,56 +1208,6 @@
     "tradeable": true
   },
   {
-    "name": "Adventurer Pants",
-    "code": "adventurer_pants",
-    "level": 10,
-    "type": "leg_armor",
-    "subtype": "",
-    "description": "",
-    "effects": [
-      {
-        "name": "hp",
-        "value": 50
-      },
-      {
-        "name": "dmg_earth",
-        "value": 5
-      },
-      {
-        "name": "dmg_water",
-        "value": 5
-      },
-      {
-        "name": "dmg_air",
-        "value": 5
-      },
-      {
-        "name": "dmg_fire",
-        "value": 5
-      }
-    ],
-    "craft": {
-      "skill": "gearcrafting",
-      "level": 10,
-      "items": [
-        {
-          "code": "ash_plank",
-          "quantity": 2
-        },
-        {
-          "code": "cowhide",
-          "quantity": 8
-        },
-        {
-          "code": "mushroom",
-          "quantity": 2
-        }
-      ],
-      "quantity": 1
-    },
-    "tradeable": true
-  },
-  {
     "name": "Adventurer Helmet",
     "code": "adventurer_helmet",
     "level": 10,
@@ -1356,32 +1216,16 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 50
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg",
         "value": 5
       },
       {
-        "name": "dmg_water",
-        "value": 5
-      },
-      {
-        "name": "dmg_fire",
-        "value": 5
-      },
-      {
-        "name": "dmg_air",
-        "value": 5
-      },
-      {
-        "name": "res_fire",
-        "value": 8
-      },
-      {
-        "name": "res_air",
-        "value": 8
+        "code": "wisdom",
+        "value": 15
       }
     ],
     "craft": {
@@ -1418,15 +1262,15 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 20
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 5
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 5
       }
     ],
@@ -1456,12 +1300,16 @@
     "code": "greater_wooden_staff",
     "level": 10,
     "type": "weapon",
-    "subtype": "staff",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_water",
+        "code": "attack_water",
         "value": 24
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -1490,23 +1338,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 50
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 8
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 8
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 2
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 2
       }
     ],
@@ -1536,27 +1384,19 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 50
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 1
       },
       {
-        "name": "res_earth",
+        "code": "dmg_fire",
         "value": 5
       },
       {
-        "name": "res_water",
-        "value": 5
-      },
-      {
-        "name": "res_air",
-        "value": 5
-      },
-      {
-        "name": "res_fire",
+        "code": "dmg_earth",
         "value": 5
       }
     ],
@@ -1586,40 +1426,16 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 60
       },
       {
-        "name": "dmg_fire",
-        "value": 8
+        "code": "dmg",
+        "value": 6
       },
       {
-        "name": "dmg_air",
-        "value": 8
-      },
-      {
-        "name": "dmg_water",
-        "value": 8
-      },
-      {
-        "name": "dmg_earth",
-        "value": 8
-      },
-      {
-        "name": "res_fire",
-        "value": 2
-      },
-      {
-        "name": "res_earth",
-        "value": 2
-      },
-      {
-        "name": "res_water",
-        "value": 2
-      },
-      {
-        "name": "res_air",
-        "value": 2
+        "code": "wisdom",
+        "value": 20
       }
     ],
     "craft": {
@@ -1656,23 +1472,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 40
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 5
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 5
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 4
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 4
       }
     ],
@@ -1713,23 +1529,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 40
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 5
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 5
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 4
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 4
       }
     ],
@@ -1759,19 +1575,19 @@
     "description": "",
     "effects": [
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 4
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 4
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 4
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 4
       }
     ],
@@ -1818,7 +1634,7 @@
       "items": [
         {
           "code": "iron_ore",
-          "quantity": 8
+          "quantity": 10
         }
       ],
       "quantity": 1
@@ -1845,7 +1661,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 180
       }
     ],
@@ -1882,19 +1698,7 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_air",
-        "value": 4
-      },
-      {
-        "name": "dmg_earth",
-        "value": 4
-      },
-      {
-        "name": "dmg_fire",
-        "value": 4
-      },
-      {
-        "name": "dmg_water",
+        "code": "dmg",
         "value": 4
       }
     ],
@@ -1920,12 +1724,16 @@
     "code": "iron_dagger",
     "level": 10,
     "type": "weapon",
-    "subtype": "dagger",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_air",
-        "value": 24
+        "code": "attack_air",
+        "value": 17
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
       }
     ],
     "craft": {
@@ -1959,7 +1767,7 @@
       "items": [
         {
           "code": "spruce_wood",
-          "quantity": 8
+          "quantity": 10
         }
       ],
       "quantity": 1
@@ -1993,12 +1801,16 @@
     "code": "fire_bow",
     "level": 10,
     "type": "weapon",
-    "subtype": "bow",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_fire",
-        "value": 24
+        "code": "attack_fire",
+        "value": 17
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
       }
     ],
     "craft": {
@@ -2027,11 +1839,11 @@
     "description": "Reduces cooldown by 10% when a character mines a resource.",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 5
       },
       {
-        "name": "mining",
+        "code": "mining",
         "value": -10
       }
     ],
@@ -2065,11 +1877,11 @@
     "description": "Reduces cooldown by 10% when a character logs a tree.",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 5
       },
       {
-        "name": "woodcutting",
+        "code": "woodcutting",
         "value": -10
       }
     ],
@@ -2103,11 +1915,11 @@
     "description": "Reduces cooldown by 10% when a character is fishing.",
     "effects": [
       {
-        "name": "attack_water",
+        "code": "attack_water",
         "value": 5
       },
       {
-        "name": "fishing",
+        "code": "fishing",
         "value": -10
       }
     ],
@@ -2133,6 +1945,22 @@
     "tradeable": true
   },
   {
+    "name": "Backpack",
+    "code": "backpack",
+    "level": 10,
+    "type": "bag",
+    "subtype": "",
+    "description": "Increase your inventory space by 35.",
+    "effects": [
+      {
+        "code": "inventory_space",
+        "value": 35
+      }
+    ],
+    "craft": null,
+    "tradeable": true
+  },
+  {
     "name": "Earth Boost Potion",
     "code": "earth_boost_potion",
     "level": 10,
@@ -2141,7 +1969,7 @@
     "description": "Gives 12% earth damage at the start of fight.",
     "effects": [
       {
-        "name": "boost_dmg_earth",
+        "code": "boost_dmg_earth",
         "value": 12
       }
     ],
@@ -2175,7 +2003,7 @@
     "description": "Gives 12% air damage at the start of fight.",
     "effects": [
       {
-        "name": "boost_dmg_air",
+        "code": "boost_dmg_air",
         "value": 12
       }
     ],
@@ -2209,7 +2037,7 @@
     "description": "Gives 12% fire damage at the start of fight.",
     "effects": [
       {
-        "name": "boost_dmg_fire",
+        "code": "boost_dmg_fire",
         "value": 12
       }
     ],
@@ -2243,7 +2071,7 @@
     "description": "Gives 12% water damage at the start of fight.",
     "effects": [
       {
-        "name": "boost_dmg_water",
+        "code": "boost_dmg_water",
         "value": 12
       }
     ],
@@ -2277,11 +2105,11 @@
     "description": "Reduces cooldown by 10% when a character harvest a plant.",
     "effects": [
       {
-        "name": "attack_air",
+        "code": "attack_air",
         "value": 5
       },
       {
-        "name": "alchemy",
+        "code": "alchemy",
         "value": -10
       }
     ],
@@ -2337,35 +2165,69 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 20
       },
       {
-        "name": "dmg_air",
-        "value": 5
+        "code": "dmg",
+        "value": 3
       },
       {
-        "name": "dmg_earth",
-        "value": 5
-      },
-      {
-        "name": "dmg_fire",
-        "value": 5
-      },
-      {
-        "name": "dmg_water",
-        "value": 5
+        "code": "wisdom",
+        "value": 15
       }
     ],
     "craft": null,
     "tradeable": true
   },
   {
-    "name": "Frost Slimeball",
-    "code": "frost_slimeball",
+    "name": "Leather Legs Armor",
+    "code": "leather_legs_armor",
+    "level": 10,
+    "type": "leg_armor",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "hp",
+        "value": 50
+      },
+      {
+        "code": "haste",
+        "value": 1
+      },
+      {
+        "code": "dmg_air",
+        "value": 5
+      },
+      {
+        "code": "dmg_water",
+        "value": 5
+      }
+    ],
+    "craft": {
+      "skill": "gearcrafting",
+      "level": 10,
+      "items": [
+        {
+          "code": "spruce_plank",
+          "quantity": 5
+        },
+        {
+          "code": "cowhide",
+          "quantity": 3
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Golden Shrimp",
+    "code": "golden_shrimp",
     "level": 10,
     "type": "resource",
-    "subtype": "mob",
+    "subtype": "fishing",
     "description": "",
     "effects": [],
     "craft": null,
@@ -2402,7 +2264,7 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 8
       }
     ],
@@ -2432,24 +2294,28 @@
     "code": "multislimes_sword",
     "level": 15,
     "type": "weapon",
-    "subtype": "sword",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_air",
-        "value": 9
+        "code": "attack_air",
+        "value": 8
       },
       {
-        "name": "attack_water",
-        "value": 9
+        "code": "attack_water",
+        "value": 8
       },
       {
-        "name": "attack_fire",
-        "value": 9
+        "code": "attack_fire",
+        "value": 8
       },
       {
-        "name": "attack_earth",
-        "value": 9
+        "code": "attack_earth",
+        "value": 8
+      },
+      {
+        "code": "critical_strike",
+        "value": 24
       }
     ],
     "craft": {
@@ -2494,16 +2360,20 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 10
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 10
       },
       {
-        "name": "hp",
-        "value": 60
+        "code": "hp",
+        "value": 50
+      },
+      {
+        "code": "critical_strike",
+        "value": 3
       }
     ],
     "craft": {
@@ -2551,7 +2421,7 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 8
       }
     ],
@@ -2585,16 +2455,20 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 10
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 10
       },
       {
-        "name": "hp",
-        "value": 60
+        "code": "hp",
+        "value": 50
+      },
+      {
+        "code": "critical_strike",
+        "value": 3
       }
     ],
     "craft": {
@@ -2602,7 +2476,7 @@
       "level": 15,
       "items": [
         {
-          "code": "cowhide",
+          "code": "green_cloth",
           "quantity": 5
         },
         {
@@ -2631,23 +2505,19 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 60
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg",
         "value": 10
       },
       {
-        "name": "dmg_earth",
-        "value": 10
+        "code": "critical_strike",
+        "value": 3
       },
       {
-        "name": "dmg_air",
-        "value": 10
-      },
-      {
-        "name": "dmg_water",
+        "code": "wisdom",
         "value": 10
       }
     ],
@@ -2685,28 +2555,16 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 60
       },
       {
-        "name": "res_water",
-        "value": 5
-      },
-      {
-        "name": "res_air",
-        "value": 5
-      },
-      {
-        "name": "res_earth",
-        "value": 5
-      },
-      {
-        "name": "res_fire",
-        "value": 5
-      },
-      {
-        "name": "haste",
+        "code": "haste",
         "value": 4
+      },
+      {
+        "code": "wisdom",
+        "value": 25
       }
     ],
     "craft": {
@@ -2735,6 +2593,48 @@
     "tradeable": true
   },
   {
+    "name": "Adventurer Pants",
+    "code": "adventurer_pants",
+    "level": 15,
+    "type": "leg_armor",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "hp",
+        "value": 60
+      },
+      {
+        "code": "wisdom",
+        "value": 20
+      },
+      {
+        "code": "dmg",
+        "value": 5
+      }
+    ],
+    "craft": {
+      "skill": "gearcrafting",
+      "level": 15,
+      "items": [
+        {
+          "code": "ash_plank",
+          "quantity": 2
+        },
+        {
+          "code": "cowhide",
+          "quantity": 8
+        },
+        {
+          "code": "green_cloth",
+          "quantity": 2
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
     "name": "Cooked Wolf Meat",
     "code": "cooked_wolf_meat",
     "level": 15,
@@ -2743,7 +2643,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 200
       }
     ],
@@ -2765,16 +2665,20 @@
     "code": "mushstaff",
     "level": 15,
     "type": "weapon",
-    "subtype": "staff",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_fire",
-        "value": 16
+        "code": "attack_fire",
+        "value": 15
       },
       {
-        "name": "attack_earth",
-        "value": 16
+        "code": "attack_earth",
+        "value": 15
+      },
+      {
+        "code": "critical_strike",
+        "value": 24
       }
     ],
     "craft": {
@@ -2790,7 +2694,7 @@
           "quantity": 4
         },
         {
-          "code": "flying_wing",
+          "code": "green_cloth",
           "quantity": 2
         },
         {
@@ -2811,7 +2715,7 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 8
       }
     ],
@@ -2841,16 +2745,20 @@
     "code": "mushmush_bow",
     "level": 15,
     "type": "weapon",
-    "subtype": "bow",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_air",
-        "value": 16
+        "code": "attack_air",
+        "value": 12
       },
       {
-        "name": "attack_water",
-        "value": 16
+        "code": "attack_water",
+        "value": 12
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
       }
     ],
     "craft": {
@@ -2898,8 +2806,12 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
-        "value": 30
+        "code": "hp",
+        "value": 25
+      },
+      {
+        "code": "wisdom",
+        "value": 20
       }
     ],
     "craft": {
@@ -2932,7 +2844,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 240
       }
     ],
@@ -2958,7 +2870,7 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 8
       }
     ],
@@ -2995,32 +2907,101 @@
     "tradeable": true
   },
   {
-    "name": "Backpack",
-    "code": "backpack",
+    "name": "Highwayman Dagger",
+    "code": "highwayman_dagger",
     "level": 15,
-    "type": "artifact",
+    "type": "weapon",
     "subtype": "",
-    "description": "Increase your inventory space by 30.",
+    "description": "",
     "effects": [
       {
-        "name": "inventory_space",
-        "value": 30
+        "code": "attack_air",
+        "value": 23
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
       }
     ],
     "craft": null,
     "tradeable": true
   },
   {
-    "name": "Gingerbread",
-    "code": "gingerbread",
+    "name": "Green Cloth",
+    "code": "green_cloth",
     "level": 15,
-    "type": "consumable",
-    "subtype": "food",
+    "type": "resource",
+    "subtype": "mob",
+    "description": "",
+    "effects": [],
+    "craft": null,
+    "tradeable": true
+  },
+  {
+    "name": "Wisdom Amulet",
+    "code": "wisdom_amulet",
+    "level": 15,
+    "type": "amulet",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "heal",
-        "value": 200
+        "code": "hp",
+        "value": 30
+      },
+      {
+        "code": "wisdom",
+        "value": 60
+      }
+    ],
+    "craft": {
+      "skill": "jewelrycrafting",
+      "level": 15,
+      "items": [
+        {
+          "code": "spruce_plank",
+          "quantity": 4
+        },
+        {
+          "code": "green_cloth",
+          "quantity": 3
+        },
+        {
+          "code": "serpent_skin",
+          "quantity": 3
+        },
+        {
+          "code": "jasper_crystal",
+          "quantity": 1
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Wolf Ears",
+    "code": "wolf_ears",
+    "level": 15,
+    "type": "helmet",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "hp",
+        "value": 60
+      },
+      {
+        "code": "dmg",
+        "value": 6
+      },
+      {
+        "code": "wisdom",
+        "value": 50
+      },
+      {
+        "code": "prospecting",
+        "value": 50
       }
     ],
     "craft": null,
@@ -3068,12 +3049,16 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 90
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 16
+      },
+      {
+        "code": "wisdom",
+        "value": 25
       }
     ],
     "craft": {
@@ -3110,7 +3095,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 225
       }
     ],
@@ -3147,20 +3132,20 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_fire",
-        "value": 8
+        "code": "hp",
+        "value": 30
       },
       {
-        "name": "dmg_water",
-        "value": 8
+        "code": "dmg",
+        "value": 7
       },
       {
-        "name": "dmg_air",
-        "value": 8
+        "code": "prospecting",
+        "value": 30
       },
       {
-        "name": "dmg_earth",
-        "value": 8
+        "code": "critical_strike",
+        "value": 4
       }
     ],
     "craft": {
@@ -3197,12 +3182,16 @@
     "code": "battlestaff",
     "level": 20,
     "type": "weapon",
-    "subtype": "staff",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_water",
+        "code": "attack_water",
         "value": 40
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -3235,12 +3224,16 @@
     "code": "forest_whip",
     "level": 20,
     "type": "weapon",
-    "subtype": "whip",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_air",
+        "code": "attack_air",
         "value": 40
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -3299,11 +3292,11 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 90
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 16
       }
     ],
@@ -3341,19 +3334,19 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 80
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 8
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 8
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 6
       }
     ],
@@ -3396,11 +3389,11 @@
       "items": [
         {
           "code": "ash_wood",
-          "quantity": 3
+          "quantity": 4
         },
         {
           "code": "birch_wood",
-          "quantity": 5
+          "quantity": 6
         }
       ],
       "quantity": 1
@@ -3427,23 +3420,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 90
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 15
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 15
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 5
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 5
       }
     ],
@@ -3456,7 +3449,7 @@
           "quantity": 7
         },
         {
-          "code": "wolf_hair",
+          "code": "green_cloth",
           "quantity": 2
         },
         {
@@ -3464,7 +3457,7 @@
           "quantity": 4
         },
         {
-          "code": "skeleton_skull",
+          "code": "spider_leg",
           "quantity": 2
         }
       ],
@@ -3477,12 +3470,16 @@
     "code": "steel_battleaxe",
     "level": 20,
     "type": "weapon",
-    "subtype": "axe",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 40
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -3519,23 +3516,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 80
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 2
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 10
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 10
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 6
       }
     ],
@@ -3573,23 +3570,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 80
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 2
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 10
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 10
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 6
       }
     ],
@@ -3623,12 +3620,16 @@
     "code": "skull_staff",
     "level": 20,
     "type": "weapon",
-    "subtype": "staff",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_fire",
+        "code": "attack_fire",
         "value": 40
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -3665,23 +3666,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 90
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 15
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 15
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 5
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 5
       }
     ],
@@ -3719,12 +3720,16 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 90
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 16
+      },
+      {
+        "code": "wisdom",
+        "value": 25
       }
     ],
     "craft": {
@@ -3770,7 +3775,7 @@
         },
         {
           "code": "coal",
-          "quantity": 5
+          "quantity": 7
         }
       ],
       "quantity": 1
@@ -3786,15 +3791,15 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 20
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 11
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 11
       }
     ],
@@ -3874,19 +3879,19 @@
     "description": "",
     "effects": [
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 7
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 7
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 7
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 7
       }
     ],
@@ -3924,20 +3929,12 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_earth",
-        "value": 5
+        "code": "dmg",
+        "value": 6
       },
       {
-        "name": "dmg_air",
-        "value": 5
-      },
-      {
-        "name": "dmg_water",
-        "value": 5
-      },
-      {
-        "name": "dmg_fire",
-        "value": 5
+        "code": "wisdom",
+        "value": 30
       }
     ],
     "craft": {
@@ -4002,16 +3999,20 @@
     "code": "tromatising_mask",
     "level": 20,
     "type": "helmet",
-    "subtype": "mask",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 90
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 16
+      },
+      {
+        "code": "wisdom",
+        "value": 25
       }
     ],
     "craft": {
@@ -4048,15 +4049,15 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 20
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 11
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 11
       }
     ],
@@ -4115,15 +4116,15 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 40
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 10
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 10
       }
     ],
@@ -4161,15 +4162,15 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 40
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 10
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 10
       }
     ],
@@ -4207,7 +4208,7 @@
     "description": "Restores 40HP at the start of the turn if the player has lost more than 50% of his health points.",
     "effects": [
       {
-        "name": "restore",
+        "code": "restore",
         "value": 40
       }
     ],
@@ -4237,19 +4238,19 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 80
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 8
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 8
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 6
       }
     ],
@@ -4259,18 +4260,18 @@
       "items": [
         {
           "code": "hardwood_plank",
-          "quantity": 3
+          "quantity": 6
         },
         {
-          "code": "steel",
-          "quantity": 6
+          "code": "spider_leg",
+          "quantity": 3
         },
         {
           "code": "serpent_skin",
           "quantity": 4
         },
         {
-          "code": "ogre_skin",
+          "code": "green_cloth",
           "quantity": 2
         }
       ],
@@ -4287,7 +4288,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 350
       }
     ],
@@ -4364,48 +4365,179 @@
     "tradeable": true
   },
   {
-    "name": "Wooden Club",
-    "code": "wooden_club",
+    "name": "Small Antidote",
+    "code": "small_antidote",
     "level": 20,
-    "type": "weapon",
-    "subtype": "club",
-    "description": "",
+    "type": "utility",
+    "subtype": "potion",
+    "description": "At the beginning of the turn, if the character has at least one poison on him, removes 20 poison damage.",
     "effects": [
       {
-        "name": "attack_earth",
-        "value": 35
+        "code": "antipoison",
+        "value": 20
+      }
+    ],
+    "craft": {
+      "skill": "alchemy",
+      "level": 20,
+      "items": [
+        {
+          "code": "milk_bucket",
+          "quantity": 1
+        },
+        {
+          "code": "sap",
+          "quantity": 1
+        },
+        {
+          "code": "nettle_leaf",
+          "quantity": 1
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Lifesteal Rune",
+    "code": "lifesteal_rune",
+    "level": 20,
+    "type": "rune",
+    "subtype": "",
+    "description": "Restores 10% of the total attack of all elements in HP after a critical strike.",
+    "effects": [
+      {
+        "code": "lifesteal",
+        "value": 10
       }
     ],
     "craft": null,
     "tradeable": true
   },
   {
-    "name": "Christmas Star",
-    "code": "christmas_star",
+    "name": "Burn Rune",
+    "code": "burn_rune",
+    "level": 20,
+    "type": "rune",
+    "subtype": "",
+    "description": "On your first turn, apply a burn effect of 20% of your attack of all elements. The damage is applied each turn and decreases by 10% each time. It is impossible to block.",
+    "effects": [
+      {
+        "code": "burn",
+        "value": 20
+      }
+    ],
+    "craft": null,
+    "tradeable": true
+  },
+  {
+    "name": "Old Boots",
+    "code": "old_boots",
+    "level": 20,
+    "type": "boots",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "hp",
+        "value": 90
+      },
+      {
+        "code": "haste",
+        "value": 3
+      },
+      {
+        "code": "wisdom",
+        "value": 70
+      }
+    ],
+    "craft": null,
+    "tradeable": true
+  },
+  {
+    "name": "Spider Leg",
+    "code": "spider_leg",
+    "level": 20,
+    "type": "resource",
+    "subtype": "mob",
+    "description": "",
+    "effects": [],
+    "craft": null,
+    "tradeable": true
+  },
+  {
+    "name": "Hunting Bow",
+    "code": "hunting_bow",
+    "level": 20,
+    "type": "weapon",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "attack_air",
+        "value": 15
+      },
+      {
+        "code": "attack_fire",
+        "value": 14
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
+      }
+    ],
+    "craft": {
+      "skill": "weaponcrafting",
+      "level": 20,
+      "items": [
+        {
+          "code": "hardwood_plank",
+          "quantity": 5
+        },
+        {
+          "code": "green_cloth",
+          "quantity": 4
+        },
+        {
+          "code": "ogre_skin",
+          "quantity": 3
+        },
+        {
+          "code": "pig_skin",
+          "quantity": 3
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Healing Rune",
+    "code": "healing_rune",
+    "level": 20,
+    "type": "rune",
+    "subtype": "",
+    "description": "Every 3 played turns, restores 5% of HP at the start of the turn.\n",
+    "effects": [
+      {
+        "code": "healing",
+        "value": 5
+      }
+    ],
+    "craft": null,
+    "tradeable": true
+  },
+  {
+    "name": "Silver Chalice",
+    "code": "silver_chalice",
     "level": 20,
     "type": "artifact",
     "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "prospecting",
         "value": 50
-      },
-      {
-        "name": "res_earth",
-        "value": 5
-      },
-      {
-        "name": "res_water",
-        "value": 5
-      },
-      {
-        "name": "res_air",
-        "value": 5
-      },
-      {
-        "name": "res_fire",
-        "value": 5
       }
     ],
     "craft": null,
@@ -4423,20 +4555,35 @@
     "tradeable": true
   },
   {
+    "name": "Vampire Tooth",
+    "code": "vampire_tooth",
+    "level": 24,
+    "type": "resource",
+    "subtype": "mob",
+    "description": "",
+    "effects": [],
+    "craft": null,
+    "tradeable": true
+  },
+  {
     "name": "Dreadful Staff",
     "code": "dreadful_staff",
     "level": 25,
     "type": "weapon",
-    "subtype": "staff",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_water",
+        "code": "attack_water",
         "value": 25
       },
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 25
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -4473,24 +4620,28 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 160
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 20
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 20
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 6
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 6
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": null,
@@ -4501,16 +4652,20 @@
     "code": "skull_wand",
     "level": 25,
     "type": "weapon",
-    "subtype": "wand",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_air",
+        "code": "attack_air",
         "value": 25
       },
       {
-        "name": "attack_fire",
+        "code": "attack_fire",
         "value": 25
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -4526,11 +4681,11 @@
           "quantity": 3
         },
         {
-          "code": "vampire_blood",
+          "code": "vampire_tooth",
           "quantity": 2
         },
         {
-          "code": "ogre_skin",
+          "code": "spider_leg",
           "quantity": 3
         },
         {
@@ -4551,20 +4706,24 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 150
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 22
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 10
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 5
+      },
+      {
+        "code": "prospecting",
+        "value": 30
       }
     ],
     "craft": {
@@ -4601,23 +4760,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 140
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 3
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 17
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 6
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 3
       }
     ],
@@ -4655,23 +4814,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 140
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 3
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 17
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 6
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 3
       }
     ],
@@ -4709,23 +4868,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 140
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 3
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 17
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 6
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 3
       }
     ],
@@ -4763,11 +4922,11 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 70
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 18
       }
     ],
@@ -4805,11 +4964,11 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 70
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 18
       }
     ],
@@ -4858,11 +5017,11 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 70
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 18
       }
     ],
@@ -4900,11 +5059,11 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 70
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 18
       }
     ],
@@ -4942,20 +5101,24 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 150
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 22
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 10
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 5
+      },
+      {
+        "code": "wisdom",
+        "value": 30
       }
     ],
     "craft": {
@@ -5003,12 +5166,16 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 110
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 20
+      },
+      {
+        "code": "critical_strike",
+        "value": 3
       }
     ],
     "craft": {
@@ -5045,20 +5212,24 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 150
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 22
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 10
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 5
+      },
+      {
+        "code": "wisdom",
+        "value": 30
       }
     ],
     "craft": {
@@ -5095,20 +5266,24 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 150
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 22
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 10
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 5
+      },
+      {
+        "code": "prospecting",
+        "value": 30
       }
     ],
     "craft": {
@@ -5145,23 +5320,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 140
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 3
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 17
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 6
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 3
       }
     ],
@@ -5170,7 +5345,7 @@
       "level": 25,
       "items": [
         {
-          "code": "lizard_skin",
+          "code": "lizard_eye",
           "quantity": 4
         },
         {
@@ -5188,6 +5363,99 @@
       ],
       "quantity": 1
     },
+    "tradeable": true
+  },
+  {
+    "name": "Wooden Club",
+    "code": "wooden_club",
+    "level": 25,
+    "type": "weapon",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "attack_earth",
+        "value": 36
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
+      }
+    ],
+    "craft": null,
+    "tradeable": true
+  },
+  {
+    "name": "Vampire Bow",
+    "code": "vampire_bow",
+    "level": 25,
+    "type": "weapon",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "attack_fire",
+        "value": 36
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
+      }
+    ],
+    "craft": {
+      "skill": "weaponcrafting",
+      "level": 25,
+      "items": [
+        {
+          "code": "steel",
+          "quantity": 4
+        },
+        {
+          "code": "vampire_blood",
+          "quantity": 4
+        },
+        {
+          "code": "spider_leg",
+          "quantity": 4
+        },
+        {
+          "code": "lizard_eye",
+          "quantity": 2
+        },
+        {
+          "code": "magical_cure",
+          "quantity": 1
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Lizard Eye",
+    "code": "lizard_eye",
+    "level": 25,
+    "type": "resource",
+    "subtype": "mob",
+    "description": "",
+    "effects": [],
+    "craft": null,
+    "tradeable": true
+  },
+  {
+    "name": "Dreadful Book",
+    "code": "dreadful_book",
+    "level": 25,
+    "type": "artifact",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "critical_strike",
+        "value": 5
+      }
+    ],
+    "craft": null,
     "tradeable": true
   },
   {
@@ -5217,16 +5485,20 @@
     "code": "greater_dreadful_staff",
     "level": 30,
     "type": "weapon",
-    "subtype": "staff",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_water",
+        "code": "attack_water",
         "value": 60
       },
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 20
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -5274,16 +5546,20 @@
     "code": "death_knight_sword",
     "level": 30,
     "type": "weapon",
-    "subtype": "sword",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_fire",
-        "value": 40
+        "code": "attack_fire",
+        "value": 37
       },
       {
-        "name": "attack_earth",
-        "value": 40
+        "code": "attack_earth",
+        "value": 37
+      },
+      {
+        "code": "critical_strike",
+        "value": 24
       }
     ],
     "craft": null,
@@ -5298,7 +5574,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 300
       }
     ],
@@ -5324,23 +5600,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 150
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 20
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 20
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 6
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 6
       }
     ],
@@ -5382,19 +5658,19 @@
     "description": "",
     "effects": [
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 10
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 10
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 10
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 10
       }
     ],
@@ -5436,12 +5712,16 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
+        "value": 7
+      },
+      {
+        "code": "dmg",
         "value": 17
       },
       {
-        "name": "dmg_water",
-        "value": 7
+        "code": "critical_strike",
+        "value": 3
       }
     ],
     "craft": {
@@ -5482,7 +5762,7 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 180
       }
     ],
@@ -5503,7 +5783,7 @@
       "items": [
         {
           "code": "gold_ore",
-          "quantity": 8
+          "quantity": 10
         }
       ],
       "quantity": 1
@@ -5530,27 +5810,27 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 150
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 5
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 17
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 17
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 7
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 7
       }
     ],
@@ -5563,7 +5843,7 @@
           "quantity": 8
         },
         {
-          "code": "lizard_skin",
+          "code": "lizard_eye",
           "quantity": 3
         },
         {
@@ -5571,7 +5851,7 @@
           "quantity": 3
         },
         {
-          "code": "vampire_blood",
+          "code": "vampire_tooth",
           "quantity": 4
         },
         {
@@ -5588,16 +5868,20 @@
     "code": "gold_sword",
     "level": 30,
     "type": "weapon",
-    "subtype": "sword",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 60
       },
       {
-        "name": "attack_air",
+        "code": "attack_air",
         "value": 20
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -5638,16 +5922,24 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 180
       },
       {
-        "name": "dmg_fire",
-        "value": 22
+        "code": "critical_strike",
+        "value": 5
       },
       {
-        "name": "dmg_earth",
-        "value": 22
+        "code": "wisdom",
+        "value": 20
+      },
+      {
+        "code": "dmg_fire",
+        "value": 20
+      },
+      {
+        "code": "dmg_earth",
+        "value": 20
       }
     ],
     "craft": null,
@@ -5665,7 +5957,7 @@
     "tradeable": true
   },
   {
-    "name": "Gold ore",
+    "name": "Gold Ore",
     "code": "gold_ore",
     "level": 30,
     "type": "resource",
@@ -5680,19 +5972,23 @@
     "code": "gold_mask",
     "level": 30,
     "type": "helmet",
-    "subtype": "mask",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 160
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 20
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
+        "value": 20
+      },
+      {
+        "code": "wisdom",
         "value": 20
       }
     ],
@@ -5709,7 +6005,7 @@
           "quantity": 2
         },
         {
-          "code": "owlbear_hair",
+          "code": "owlbear_claw",
           "quantity": 4
         },
         {
@@ -5739,7 +6035,7 @@
       "items": [
         {
           "code": "dead_wood",
-          "quantity": 8
+          "quantity": 10
         }
       ],
       "quantity": 1
@@ -5755,12 +6051,16 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
+        "value": 7
+      },
+      {
+        "code": "dmg",
         "value": 17
       },
       {
-        "name": "dmg_air",
-        "value": 7
+        "code": "critical_strike",
+        "value": 3
       }
     ],
     "craft": {
@@ -5801,20 +6101,12 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_earth",
-        "value": 7
+        "code": "dmg",
+        "value": 8
       },
       {
-        "name": "dmg_air",
-        "value": 7
-      },
-      {
-        "name": "dmg_water",
-        "value": 7
-      },
-      {
-        "name": "dmg_fire",
-        "value": 7
+        "code": "prospecting",
+        "value": 30
       }
     ],
     "craft": {
@@ -5855,11 +6147,11 @@
     "description": "Reduces cooldown by 20% when a character is fishing.",
     "effects": [
       {
-        "name": "attack_water",
+        "code": "attack_water",
         "value": 5
       },
       {
-        "name": "fishing",
+        "code": "fishing",
         "value": -20
       }
     ],
@@ -5884,7 +6176,7 @@
           "quantity": 2
         },
         {
-          "code": "owlbear_hair",
+          "code": "owlbear_claw",
           "quantity": 3
         }
       ],
@@ -5912,11 +6204,11 @@
     "description": "Reduces cooldown by 20% when a character logs a tree.",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 5
       },
       {
-        "name": "woodcutting",
+        "code": "woodcutting",
         "value": -20
       }
     ],
@@ -5954,19 +6246,23 @@
     "code": "gold_helm",
     "level": 30,
     "type": "helmet",
-    "subtype": "helm",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 160
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 20
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
+        "value": 20
+      },
+      {
+        "code": "wisdom",
         "value": 20
       }
     ],
@@ -5987,7 +6283,7 @@
           "quantity": 3
         },
         {
-          "code": "vampire_blood",
+          "code": "vampire_tooth",
           "quantity": 3
         },
         {
@@ -6008,12 +6304,16 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
+        "value": 7
+      },
+      {
+        "code": "dmg",
         "value": 17
       },
       {
-        "name": "dmg_fire",
-        "value": 7
+        "code": "critical_strike",
+        "value": 3
       }
     ],
     "craft": {
@@ -6054,12 +6354,16 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
+        "value": 7
+      },
+      {
+        "code": "dmg",
         "value": 17
       },
       {
-        "name": "dmg_earth",
-        "value": 7
+        "code": "critical_strike",
+        "value": 3
       }
     ],
     "craft": {
@@ -6100,11 +6404,11 @@
     "description": "Reduces cooldown by 20% when a character mines a resource.",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 5
       },
       {
-        "name": "mining",
+        "code": "mining",
         "value": -20
       }
     ],
@@ -6146,27 +6450,27 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 110
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 5
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 5
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 8
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 8
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 7
       }
     ],
@@ -6187,7 +6491,7 @@
           "quantity": 4
         },
         {
-          "code": "owlbear_hair",
+          "code": "owlbear_claw",
           "quantity": 3
         },
         {
@@ -6208,27 +6512,27 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 110
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 5
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 5
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 8
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 8
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 7
       }
     ],
@@ -6245,7 +6549,7 @@
           "quantity": 4
         },
         {
-          "code": "demon_horn",
+          "code": "lizard_eye",
           "quantity": 3
         },
         {
@@ -6270,15 +6574,15 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 90
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 15
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 15
       }
     ],
@@ -6381,31 +6685,27 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 170
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 3
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 18
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 18
       },
       {
-        "name": "res_water",
-        "value": 5
+        "code": "critical_strike",
+        "value": 3
       },
       {
-        "name": "res_fire",
-        "value": 5
-      },
-      {
-        "name": "inventory_space",
+        "code": "inventory_space",
         "value": -25
       }
     ],
@@ -6422,11 +6722,11 @@
           "quantity": 1
         },
         {
-          "code": "owlbear_hair",
+          "code": "owlbear_claw",
           "quantity": 3
         },
         {
-          "code": "demon_horn",
+          "code": "lizard_eye",
           "quantity": 5
         },
         {
@@ -6447,19 +6747,27 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 170
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 22
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 22
       },
       {
-        "name": "inventory_space",
+        "code": "prospecting",
+        "value": 30
+      },
+      {
+        "code": "critical_strike",
+        "value": 3
+      },
+      {
+        "code": "inventory_space",
         "value": -25
       }
     ],
@@ -6484,7 +6792,7 @@
           "quantity": 5
         },
         {
-          "code": "vampire_blood",
+          "code": "vampire_tooth",
           "quantity": 5
         }
       ],
@@ -6501,27 +6809,27 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 180
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 22
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 22
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 5
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 5
       },
       {
-        "name": "inventory_space",
+        "code": "inventory_space",
         "value": -25
       }
     ],
@@ -6538,7 +6846,7 @@
           "quantity": 1
         },
         {
-          "code": "pig_skin",
+          "code": "spider_leg",
           "quantity": 5
         },
         {
@@ -6563,7 +6871,7 @@
     "description": "Restores 60HP at the start of the turn if the player has lost more than 50% of his health points.",
     "effects": [
       {
-        "name": "restore",
+        "code": "restore",
         "value": 60
       }
     ],
@@ -6597,11 +6905,11 @@
     "description": "Reduces cooldown by 20% when a character harvest a plant.",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 5
       },
       {
-        "name": "alchemy",
+        "code": "alchemy",
         "value": -20
       }
     ],
@@ -6643,15 +6951,15 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 90
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 15
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 15
       }
     ],
@@ -6693,27 +7001,27 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 150
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 5
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 17
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 17
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 7
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 7
       }
     ],
@@ -6751,23 +7059,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 150
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 20
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 20
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 6
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 6
       }
     ],
@@ -6805,15 +7113,19 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 160
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 20
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
+        "value": 20
+      },
+      {
+        "code": "wisdom",
         "value": 20
       }
     ],
@@ -6830,7 +7142,7 @@
           "quantity": 1
         },
         {
-          "code": "owlbear_hair",
+          "code": "owlbear_claw",
           "quantity": 4
         },
         {
@@ -6847,16 +7159,20 @@
     "code": "elderwood_staff",
     "level": 30,
     "type": "weapon",
-    "subtype": "staff",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_water",
+        "code": "attack_water",
         "value": 40
       },
       {
-        "name": "attack_fire",
+        "code": "attack_fire",
         "value": 40
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -6893,16 +7209,20 @@
     "code": "obsidian_battleaxe",
     "level": 30,
     "type": "weapon",
-    "subtype": "axe",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 80
       },
       {
-        "name": "inventory_space",
+        "code": "inventory_space",
         "value": -25
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -6935,56 +7255,373 @@
     "tradeable": true
   },
   {
-    "name": "Carrot",
-    "code": "carrot",
+    "name": "Antidote",
+    "code": "antidote",
     "level": 30,
-    "type": "consumable",
-    "subtype": "food",
-    "description": "",
+    "type": "utility",
+    "subtype": "potion",
+    "description": "At the beginning of the turn, if the character has at least one poison on him, removes 50 poison damage.",
     "effects": [
       {
-        "name": "heal",
-        "value": 200
+        "code": "antipoison",
+        "value": 50
       }
     ],
-    "craft": null,
+    "craft": {
+      "skill": "alchemy",
+      "level": 30,
+      "items": [
+        {
+          "code": "strangold",
+          "quantity": 2
+        },
+        {
+          "code": "maple_sap",
+          "quantity": 1
+        },
+        {
+          "code": "glowstem_leaf",
+          "quantity": 1
+        }
+      ],
+      "quantity": 1
+    },
     "tradeable": true
   },
   {
-    "name": "Snowman Hat",
-    "code": "snowman_hat",
+    "name": "Prospecting Amulet",
+    "code": "prospecting_amulet",
     "level": 30,
-    "type": "helmet",
+    "type": "amulet",
     "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
+        "value": 100
+      },
+      {
+        "code": "prospecting",
+        "value": 100
+      },
+      {
+        "code": "dmg",
+        "value": 5
+      }
+    ],
+    "craft": {
+      "skill": "jewelrycrafting",
+      "level": 30,
+      "items": [
+        {
+          "code": "dead_wood_plank",
+          "quantity": 4
+        },
+        {
+          "code": "spider_leg",
+          "quantity": 3
+        },
+        {
+          "code": "ogre_skin",
+          "quantity": 6
+        },
+        {
+          "code": "owlbear_hair",
+          "quantity": 4
+        },
+        {
+          "code": "magical_cure",
+          "quantity": 1
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Enchanted Bow",
+    "code": "enchanted_bow",
+    "level": 30,
+    "type": "weapon",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "attack_fire",
+        "value": 53
+      },
+      {
+        "code": "attack_water",
+        "value": 15
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
+      }
+    ],
+    "craft": {
+      "skill": "weaponcrafting",
+      "level": 30,
+      "items": [
+        {
+          "code": "gold",
+          "quantity": 8
+        },
+        {
+          "code": "spider_leg",
+          "quantity": 3
+        },
+        {
+          "code": "demon_horn",
+          "quantity": 2
+        },
+        {
+          "code": "ogre_eye",
+          "quantity": 4
+        },
+        {
+          "code": "red_cloth",
+          "quantity": 3
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Royal Skeleton Ring",
+    "code": "royal_skeleton_ring",
+    "level": 30,
+    "type": "ring",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "wisdom",
+        "value": 50
+      },
+      {
+        "code": "dmg",
+        "value": 8
+      }
+    ],
+    "craft": {
+      "skill": "jewelrycrafting",
+      "level": 30,
+      "items": [
+        {
+          "code": "gold",
+          "quantity": 8
+        },
+        {
+          "code": "owlbear_claw",
+          "quantity": 3
+        },
+        {
+          "code": "vampire_tooth",
+          "quantity": 3
+        },
+        {
+          "code": "spider_leg",
+          "quantity": 2
+        },
+        {
+          "code": "ogre_skin",
+          "quantity": 4
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Owlbear Claw",
+    "code": "owlbear_claw",
+    "level": 30,
+    "type": "resource",
+    "subtype": "mob",
+    "description": "",
+    "effects": [],
+    "craft": null,
+    "tradeable": true
+  },
+  {
+    "name": "Flying Boots",
+    "code": "flying_boots",
+    "level": 30,
+    "type": "boots",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "hp",
+        "value": 80
+      },
+      {
+        "code": "dmg",
+        "value": 4
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
+      },
+      {
+        "code": "haste",
+        "value": 7
+      }
+    ],
+    "craft": {
+      "skill": "gearcrafting",
+      "level": 30,
+      "items": [
+        {
+          "code": "dead_wood_plank",
+          "quantity": 8
+        },
+        {
+          "code": "lizard_eye",
+          "quantity": 4
+        },
+        {
+          "code": "demoniac_dust",
+          "quantity": 4
+        },
+        {
+          "code": "owlbear_hair",
+          "quantity": 3
+        },
+        {
+          "code": "magical_cure",
+          "quantity": 1
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Conjurer Skirt",
+    "code": "conjurer_skirt",
+    "level": 30,
+    "type": "leg_armor",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "hp",
         "value": 180
       },
       {
-        "name": "dmg_water",
-        "value": 25
+        "code": "haste",
+        "value": 5
       },
       {
-        "name": "dmg_air",
-        "value": 25
+        "code": "dmg",
+        "value": 15
       },
       {
-        "name": "res_water",
-        "value": -5
+        "code": "critical_strike",
+        "value": 5
       },
       {
-        "name": "res_fire",
-        "value": -5
+        "code": "wisdom",
+        "value": 50
+      }
+    ],
+    "craft": {
+      "skill": "gearcrafting",
+      "level": 30,
+      "items": [
+        {
+          "code": "obsidian",
+          "quantity": 6
+        },
+        {
+          "code": "vampire_tooth",
+          "quantity": 4
+        },
+        {
+          "code": "owlbear_claw",
+          "quantity": 3
+        },
+        {
+          "code": "lizard_eye",
+          "quantity": 4
+        },
+        {
+          "code": "red_cloth",
+          "quantity": 3
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Conjurer Cloak",
+    "code": "conjurer_cloak",
+    "level": 30,
+    "type": "body_armor",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "hp",
+        "value": 150
       },
       {
-        "name": "res_air",
-        "value": -5
+        "code": "dmg",
+        "value": 18
       },
       {
-        "name": "res_earth",
-        "value": -5
+        "code": "critical_strike",
+        "value": 5
+      },
+      {
+        "code": "wisdom",
+        "value": 50
+      }
+    ],
+    "craft": {
+      "skill": "gearcrafting",
+      "level": 30,
+      "items": [
+        {
+          "code": "obsidian",
+          "quantity": 6
+        },
+        {
+          "code": "cyclops_eye",
+          "quantity": 5
+        },
+        {
+          "code": "owlbear_hair",
+          "quantity": 4
+        },
+        {
+          "code": "demon_horn",
+          "quantity": 4
+        },
+        {
+          "code": "enchanted_fabric",
+          "quantity": 1
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Golden Chalice",
+    "code": "golden_chalice",
+    "level": 30,
+    "type": "artifact",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "prospecting",
+        "value": 100
       }
     ],
     "craft": null,
@@ -7080,11 +7717,11 @@
       "items": [
         {
           "code": "gold_ore",
-          "quantity": 3
+          "quantity": 4
         },
         {
           "code": "strange_ore",
-          "quantity": 5
+          "quantity": 6
         }
       ],
       "quantity": 1
@@ -7105,11 +7742,11 @@
       "items": [
         {
           "code": "dead_wood",
-          "quantity": 3
+          "quantity": 4
         },
         {
           "code": "magic_wood",
-          "quantity": 5
+          "quantity": 6
         }
       ],
       "quantity": 1
@@ -7125,11 +7762,11 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 170
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 35
       }
     ],
@@ -7138,7 +7775,7 @@
       "level": 35,
       "items": [
         {
-          "code": "magical_plank",
+          "code": "cursed_plank",
           "quantity": 8
         },
         {
@@ -7175,15 +7812,15 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 170
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 22
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 22
       }
     ],
@@ -7229,27 +7866,27 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 150
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 5
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 18
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 20
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 7
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 7
       }
     ],
@@ -7291,23 +7928,23 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 150
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 24
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 18
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 6
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 6
       }
     ],
@@ -7349,16 +7986,20 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 170
       },
       {
-        "name": "dmg_fire",
-        "value": 30
+        "code": "dmg_fire",
+        "value": 26
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 10
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -7395,16 +8036,20 @@
     "code": "magic_bow",
     "level": 35,
     "type": "weapon",
-    "subtype": "bow",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_air",
-        "value": 65
+        "code": "attack_air",
+        "value": 47
       },
       {
-        "name": "attack_water",
-        "value": 20
+        "code": "attack_water",
+        "value": 14
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
       }
     ],
     "craft": {
@@ -7445,12 +8090,16 @@
     "code": "cursed_sceptre",
     "level": 35,
     "type": "weapon",
-    "subtype": "sceptre",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_fire",
+        "code": "attack_fire",
         "value": 82
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
       }
     ],
     "craft": {
@@ -7495,15 +8144,15 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 100
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 20
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 10
       }
     ],
@@ -7545,15 +8194,15 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 100
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 20
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 10
       }
     ],
@@ -7612,16 +8261,20 @@
     "code": "strangold_sword",
     "level": 35,
     "type": "weapon",
-    "subtype": "sword",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_fire",
+        "code": "attack_fire",
         "value": 45
       },
       {
-        "name": "attack_air",
+        "code": "attack_air",
         "value": 40
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -7662,24 +8315,28 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 150
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 5
       },
       {
-        "name": "dmg_earth",
-        "value": 25
+        "code": "dmg_earth",
+        "value": 22
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 10
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": -10
+      },
+      {
+        "code": "critical_strike",
+        "value": 6
       }
     ],
     "craft": {
@@ -7720,7 +8377,7 @@
     "description": "Restores 80HP at the start of the turn if the player has lost more than 50% of his health points.",
     "effects": [
       {
-        "name": "restore",
+        "code": "restore",
         "value": 80
       }
     ],
@@ -7776,15 +8433,15 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 100
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 20
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 10
       }
     ],
@@ -7826,15 +8483,15 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 100
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 20
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 10
       }
     ],
@@ -7876,16 +8533,20 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 170
       },
       {
-        "name": "dmg_water",
-        "value": 30
+        "code": "dmg_water",
+        "value": 26
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 10
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -7926,19 +8587,19 @@
     "description": "",
     "effects": [
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 15
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 15
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": -10
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": -10
       }
     ],
@@ -7976,16 +8637,20 @@
     "code": "dreadful_battleaxe",
     "level": 35,
     "type": "weapon",
-    "subtype": "axe",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_water",
+        "code": "attack_water",
         "value": 65
       },
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 20
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -7997,11 +8662,11 @@
           "quantity": 7
         },
         {
-          "code": "goblin_eye",
+          "code": "lizard_eye",
           "quantity": 4
         },
         {
-          "code": "lizard_skin",
+          "code": "goblin_eye",
           "quantity": 3
         },
         {
@@ -8037,69 +8702,313 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_earth",
-        "value": 8
-      },
-      {
-        "name": "dmg_water",
-        "value": 8
-      },
-      {
-        "name": "dmg_air",
-        "value": 8
-      },
-      {
-        "name": "dmg_fire",
-        "value": 8
+        "code": "dmg",
+        "value": 5
       }
     ],
     "craft": null,
     "tradeable": true
   },
   {
-    "name": "Christmas Potion",
-    "code": "christmas_potion",
+    "name": "Malefic Ring",
+    "code": "malefic_ring",
     "level": 35,
-    "type": "utility",
-    "subtype": "potion",
-    "description": "Gives 15% damage in all elements and 100HP at the start of fight.",
+    "type": "ring",
+    "subtype": "",
+    "description": "",
     "effects": [
       {
-        "name": "boost_hp",
-        "value": 100
+        "code": "dmg",
+        "value": 14
       },
       {
-        "name": "boost_dmg_water",
-        "value": 15
+        "code": "critical_strike",
+        "value": 6
       },
       {
-        "name": "boost_dmg_fire",
-        "value": 15
-      },
-      {
-        "name": "boost_dmg_earth",
-        "value": 15
-      },
-      {
-        "name": "boost_dmg_air",
-        "value": 15
+        "code": "prospecting",
+        "value": 30
       }
     ],
     "craft": {
-      "skill": "alchemy",
+      "skill": "jewelrycrafting",
       "level": 35,
       "items": [
         {
-          "code": "carrot",
+          "code": "strangold",
+          "quantity": 8
+        },
+        {
+          "code": "cursed_plank",
+          "quantity": 4
+        },
+        {
+          "code": "ruby",
+          "quantity": 2
+        },
+        {
+          "code": "lizard_eye",
+          "quantity": 2
+        },
+        {
+          "code": "owlbear_claw",
+          "quantity": 2
+        },
+        {
+          "code": "astralyte_crystal",
+          "quantity": 2
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Diamond Sword",
+    "code": "diamond_sword",
+    "level": 35,
+    "type": "weapon",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "attack_water",
+        "value": 75
+      },
+      {
+        "code": "critical_strike",
+        "value": 24
+      }
+    ],
+    "craft": {
+      "skill": "weaponcrafting",
+      "level": 35,
+      "items": [
+        {
+          "code": "magical_plank",
+          "quantity": 7
+        },
+        {
+          "code": "goblin_eye",
+          "quantity": 3
+        },
+        {
+          "code": "spider_leg",
+          "quantity": 3
+        },
+        {
+          "code": "magic_stone",
+          "quantity": 3
+        },
+        {
+          "code": "diamond",
           "quantity": 1
         },
         {
-          "code": "frost_slimeball",
+          "code": "magical_cure",
+          "quantity": 2
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Jester Hat",
+    "code": "jester_hat",
+    "level": 35,
+    "type": "helmet",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "hp",
+        "value": 150
+      },
+      {
+        "code": "dmg_water",
+        "value": 15
+      },
+      {
+        "code": "dmg",
+        "value": 15
+      },
+      {
+        "code": "critical_strike",
+        "value": 8
+      }
+    ],
+    "craft": {
+      "skill": "gearcrafting",
+      "level": 35,
+      "items": [
+        {
+          "code": "cursed_plank",
+          "quantity": 8
+        },
+        {
+          "code": "vampire_tooth",
+          "quantity": 2
+        },
+        {
+          "code": "cursed_book",
+          "quantity": 4
+        },
+        {
+          "code": "owlbear_hair",
+          "quantity": 4
+        },
+        {
+          "code": "diamond",
           "quantity": 1
         },
         {
-          "code": "krampus_horn",
+          "code": "enchanted_fabric",
           "quantity": 1
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Enchanter Pants",
+    "code": "enchanter_pants",
+    "level": 35,
+    "type": "leg_armor",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "hp",
+        "value": 150
+      },
+      {
+        "code": "dmg",
+        "value": 16
+      },
+      {
+        "code": "prospecting",
+        "value": 120
+      },
+      {
+        "code": "haste",
+        "value": 5
+      }
+    ],
+    "craft": {
+      "skill": "gearcrafting",
+      "level": 35,
+      "items": [
+        {
+          "code": "magical_plank",
+          "quantity": 8
+        },
+        {
+          "code": "demon_horn",
+          "quantity": 2
+        },
+        {
+          "code": "cursed_book",
+          "quantity": 3
+        },
+        {
+          "code": "owlbear_claw",
+          "quantity": 4
+        },
+        {
+          "code": "spider_leg",
+          "quantity": 2
+        },
+        {
+          "code": "enchanted_fabric",
+          "quantity": 1
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Enchanter Boots",
+    "code": "enchanter_boots",
+    "level": 35,
+    "type": "boots",
+    "subtype": "",
+    "description": "",
+    "effects": [
+      {
+        "code": "hp",
+        "value": 110
+      },
+      {
+        "code": "dmg",
+        "value": 5
+      },
+      {
+        "code": "prospecting",
+        "value": 120
+      },
+      {
+        "code": "haste",
+        "value": 7
+      }
+    ],
+    "craft": {
+      "skill": "gearcrafting",
+      "level": 35,
+      "items": [
+        {
+          "code": "magical_plank",
+          "quantity": 8
+        },
+        {
+          "code": "malefic_cloth",
+          "quantity": 2
+        },
+        {
+          "code": "lizard_eye",
+          "quantity": 4
+        },
+        {
+          "code": "owlbear_claw",
+          "quantity": 5
+        },
+        {
+          "code": "enchanted_fabric",
+          "quantity": 1
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Cursed Wood",
+    "code": "cursed_wood",
+    "level": 35,
+    "type": "resource",
+    "subtype": "mob",
+    "description": "",
+    "effects": [],
+    "craft": null,
+    "tradeable": true
+  },
+  {
+    "name": "Cursed Plank",
+    "code": "cursed_plank",
+    "level": 35,
+    "type": "resource",
+    "subtype": "plank",
+    "description": "",
+    "effects": [],
+    "craft": {
+      "skill": "woodcutting",
+      "level": 35,
+      "items": [
+        {
+          "code": "cursed_wood",
+          "quantity": 10
         }
       ],
       "quantity": 1
@@ -8137,7 +9046,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 600
       }
     ],
@@ -8167,16 +9076,20 @@
     "code": "sanguine_edge_of_rosen",
     "level": 40,
     "type": "weapon",
-    "subtype": "sword",
+    "subtype": "",
     "description": "Commemorative weapon in honor of Rosenstjerne. First player to drop an artifact in the game.",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 75
       },
       {
-        "name": "attack_fire",
+        "code": "attack_fire",
         "value": 25
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": null,
@@ -8191,12 +9104,12 @@
     "description": "",
     "effects": [
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 20
       },
       {
-        "name": "res_air",
-        "value": -10
+        "code": "res_air",
+        "value": -5
       }
     ],
     "craft": {
@@ -8237,11 +9150,11 @@
     "description": "",
     "effects": [
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 20
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": -10
       }
     ],
@@ -8283,12 +9196,12 @@
     "description": "",
     "effects": [
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 20
       },
       {
-        "name": "res_fire",
-        "value": -10
+        "code": "res_fire",
+        "value": -5
       }
     ],
     "craft": {
@@ -8329,11 +9242,11 @@
     "description": "",
     "effects": [
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 20
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": -10
       }
     ],
@@ -8375,19 +9288,19 @@
     "description": "Gives 20% resistance in all elements at the start of fight.",
     "effects": [
       {
-        "name": "boost_res_water",
+        "code": "boost_res_water",
         "value": 20
       },
       {
-        "name": "boost_res_fire",
+        "code": "boost_res_fire",
         "value": 20
       },
       {
-        "name": "boost_res_air",
+        "code": "boost_res_air",
         "value": 20
       },
       {
-        "name": "boost_res_earth",
+        "code": "boost_res_earth",
         "value": 20
       }
     ],
@@ -8403,20 +9316,24 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 200
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 40
       },
       {
-        "name": "res_fire",
-        "value": -10
+        "code": "critical_strike",
+        "value": 8
       },
       {
-        "name": "res_earth",
-        "value": -10
+        "code": "res_fire",
+        "value": -5
+      },
+      {
+        "code": "res_earth",
+        "value": -5
       }
     ],
     "craft": {
@@ -8472,7 +9389,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 400
       }
     ],
@@ -8498,7 +9415,7 @@
     "description": "Gives 150HP at the start of the fight.",
     "effects": [
       {
-        "name": "boost_hp",
+        "code": "boost_hp",
         "value": 150
       }
     ],
@@ -8543,20 +9460,24 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 200
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_air",
         "value": 40
       },
       {
-        "name": "res_water",
-        "value": -10
+        "code": "critical_strike",
+        "value": 8
       },
       {
-        "name": "res_air",
-        "value": -10
+        "code": "res_water",
+        "value": -5
+      },
+      {
+        "code": "res_air",
+        "value": -5
       }
     ],
     "craft": {
@@ -8624,7 +9545,7 @@
       "items": [
         {
           "code": "mithril_ore",
-          "quantity": 8
+          "quantity": 10
         }
       ],
       "quantity": 1
@@ -8645,7 +9566,7 @@
       "items": [
         {
           "code": "maple_wood",
-          "quantity": 8
+          "quantity": 10
         }
       ],
       "quantity": 1
@@ -8669,11 +9590,11 @@
     "level": 40,
     "type": "utility",
     "subtype": "potion",
-    "description": "Restores 140HP at the start of the turn if the player has lost more than 50% of his health points.",
+    "description": "Restores 100HP at the start of the turn if the player has lost more than 50% of his health points.",
     "effects": [
       {
-        "name": "restore",
-        "value": 140
+        "code": "restore",
+        "value": 100
       }
     ],
     "craft": {
@@ -8706,19 +9627,19 @@
     "description": "Gives 20% damage in all elements at the start of fight.",
     "effects": [
       {
-        "name": "boost_dmg_water",
+        "code": "boost_dmg_water",
         "value": 20
       },
       {
-        "name": "boost_dmg_fire",
+        "code": "boost_dmg_fire",
         "value": 20
       },
       {
-        "name": "boost_dmg_earth",
+        "code": "boost_dmg_earth",
         "value": 20
       },
       {
-        "name": "boost_dmg_air",
+        "code": "boost_dmg_air",
         "value": 20
       }
     ],
@@ -8739,7 +9660,7 @@
           "quantity": 1
         }
       ],
-      "quantity": 0
+      "quantity": 1
     },
     "tradeable": true
   },
@@ -8796,7 +9717,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 600
       }
     ],
@@ -8822,12 +9743,16 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 130
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 30
+      },
+      {
+        "code": "critical_strike",
+        "value": 3
       }
     ],
     "craft": {
@@ -8868,12 +9793,16 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 130
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 30
+      },
+      {
+        "code": "critical_strike",
+        "value": 3
       }
     ],
     "craft": {
@@ -8914,12 +9843,16 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 130
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 30
+      },
+      {
+        "code": "critical_strike",
+        "value": 3
       }
     ],
     "craft": {
@@ -8960,12 +9893,16 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 130
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 30
+      },
+      {
+        "code": "critical_strike",
+        "value": 3
       }
     ],
     "craft": {
@@ -9002,16 +9939,20 @@
     "code": "mithril_sword",
     "level": 40,
     "type": "weapon",
-    "subtype": "sword",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_water",
+        "code": "attack_water",
         "value": 70
       },
       {
-        "name": "attack_fire",
+        "code": "attack_fire",
         "value": 30
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -9056,24 +9997,28 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 180
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 28
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 22
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 7
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 7
+      },
+      {
+        "code": "prospecting",
+        "value": 30
       }
     ],
     "craft": {
@@ -9114,15 +10059,19 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 200
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 30
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
+        "value": 20
+      },
+      {
+        "code": "prospecting",
         "value": 20
       }
     ],
@@ -9164,27 +10113,27 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 180
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 6
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 24
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 20
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 7
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 7
       }
     ],
@@ -9197,7 +10146,7 @@
           "quantity": 8
         },
         {
-          "code": "demon_horn",
+          "code": "lizard_eye",
           "quantity": 2
         },
         {
@@ -9205,7 +10154,7 @@
           "quantity": 3
         },
         {
-          "code": "vampire_blood",
+          "code": "vampire_tooth",
           "quantity": 3
         },
         {
@@ -9222,12 +10171,16 @@
     "code": "bow_from_hell",
     "level": 40,
     "type": "weapon",
-    "subtype": "bow",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_air",
-        "value": 115
+        "code": "attack_air",
+        "value": 106
+      },
+      {
+        "code": "critical_strike",
+        "value": 24
       }
     ],
     "craft": {
@@ -9264,12 +10217,16 @@
     "code": "hell_staff",
     "level": 40,
     "type": "weapon",
-    "subtype": "staff",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_water",
+        "code": "attack_water",
         "value": 115
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -9277,7 +10234,7 @@
       "level": 40,
       "items": [
         {
-          "code": "magical_plank",
+          "code": "cursed_plank",
           "quantity": 8
         },
         {
@@ -9306,16 +10263,20 @@
     "code": "lightning_sword",
     "level": 40,
     "type": "weapon",
-    "subtype": "sword",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_air",
-        "value": 70
+        "code": "attack_air",
+        "value": 50
       },
       {
-        "name": "attack_earth",
-        "value": 30
+        "code": "attack_earth",
+        "value": 22
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
       }
     ],
     "craft": {
@@ -9356,7 +10317,7 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 20
       }
     ],
@@ -9372,7 +10333,7 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 20
       }
     ],
@@ -9388,7 +10349,7 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 20
       }
     ],
@@ -9404,7 +10365,7 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 20
       }
     ],
@@ -9416,12 +10377,16 @@
     "code": "demoniac_dagger",
     "level": 40,
     "type": "weapon",
-    "subtype": "sword",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_fire",
-        "value": 115
+        "code": "attack_fire",
+        "value": 85
+      },
+      {
+        "code": "critical_strike",
+        "value": 35
       }
     ],
     "craft": {
@@ -9458,16 +10423,20 @@
     "code": "bloodblade",
     "level": 40,
     "type": "weapon",
-    "subtype": "sword",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_fire",
+        "code": "attack_fire",
         "value": 70
       },
       {
-        "name": "attack_air",
+        "code": "attack_air",
         "value": 30
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -9504,16 +10473,20 @@
     "code": "wrathsword",
     "level": 40,
     "type": "weapon",
-    "subtype": "sword",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 70
       },
       {
-        "name": "attack_water",
+        "code": "attack_water",
         "value": 30
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -9546,56 +10519,6 @@
     "tradeable": true
   },
   {
-    "name": "Celest Ring",
-    "code": "celest_ring",
-    "level": 40,
-    "type": "ring",
-    "subtype": "",
-    "description": "",
-    "effects": [
-      {
-        "name": "dmg_fire",
-        "value": 20
-      },
-      {
-        "name": "dmg_water",
-        "value": 20
-      }
-    ],
-    "craft": {
-      "skill": "jewelrycrafting",
-      "level": 40,
-      "items": [
-        {
-          "code": "strangold",
-          "quantity": 8
-        },
-        {
-          "code": "maple_plank",
-          "quantity": 4
-        },
-        {
-          "code": "ruby",
-          "quantity": 2
-        },
-        {
-          "code": "sapphire",
-          "quantity": 2
-        },
-        {
-          "code": "efreet_cloth",
-          "quantity": 2
-        },
-        {
-          "code": "astralyte_crystal",
-          "quantity": 2
-        }
-      ],
-      "quantity": 1
-    },
-    "tradeable": true
-  },
-  {
     "name": "Sacred Ring",
     "code": "sacred_ring",
     "level": 40,
@@ -9604,12 +10527,16 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 20
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 20
+      },
+      {
+        "code": "prospecting",
+        "value": 30
       }
     ],
     "craft": {
@@ -9654,12 +10581,16 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 20
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 20
+      },
+      {
+        "code": "prospecting",
+        "value": 30
       }
     ],
     "craft": {
@@ -9704,12 +10635,16 @@
     "description": "",
     "effects": [
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 20
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 20
+      },
+      {
+        "code": "prospecting",
+        "value": 30
       }
     ],
     "craft": {
@@ -9754,24 +10689,28 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 180
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 28
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 20
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 7
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 7
+      },
+      {
+        "code": "prospecting",
+        "value": 30
       }
     ],
     "craft": {
@@ -9812,24 +10751,28 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 180
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 28
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 20
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 7
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 7
+      },
+      {
+        "code": "prospecting",
+        "value": 30
       }
     ],
     "craft": {
@@ -9870,31 +10813,31 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 250
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg",
         "value": 30
       },
       {
-        "name": "dmg_earth",
-        "value": 30
+        "code": "critical_strike",
+        "value": 5
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": -10
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": -10
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": -10
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": -10
       }
     ],
@@ -9903,7 +10846,7 @@
       "level": 40,
       "items": [
         {
-          "code": "maple_plank",
+          "code": "cursed_plank",
           "quantity": 8
         },
         {
@@ -9936,24 +10879,28 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 180
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 28
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 20
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 7
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 7
+      },
+      {
+        "code": "prospecting",
+        "value": 30
       }
     ],
     "craft": {
@@ -9994,27 +10941,27 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 180
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 6
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 24
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 20
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 7
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 7
       }
     ],
@@ -10023,7 +10970,7 @@
       "level": 40,
       "items": [
         {
-          "code": "strangold",
+          "code": "cursed_plank",
           "quantity": 8
         },
         {
@@ -10056,27 +11003,27 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 180
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 6
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 24
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 20
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 7
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 7
       }
     ],
@@ -10118,35 +11065,35 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 240
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 7
       },
       {
-        "name": "dmg_air",
-        "value": 30
+        "code": "dmg",
+        "value": 25
       },
       {
-        "name": "dmg_water",
-        "value": 26
+        "code": "critical_strike",
+        "value": 7
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": -10
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": -10
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": -10
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": -10
       }
     ],
@@ -10188,27 +11135,27 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 180
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 6
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 24
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 20
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 7
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 7
       }
     ],
@@ -10250,16 +11197,20 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 200
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 30
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 20
+      },
+      {
+        "code": "critical_strike",
+        "value": 3
       }
     ],
     "craft": {
@@ -10300,16 +11251,20 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 200
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 30
       },
       {
-        "name": "dmg_water",
-        "value": 15
+        "code": "dmg_water",
+        "value": 20
+      },
+      {
+        "code": "prospecting",
+        "value": 20
       }
     ],
     "craft": {
@@ -10350,16 +11305,20 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 200
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 30
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 20
+      },
+      {
+        "code": "critical_strike",
+        "value": 3
       }
     ],
     "craft": {
@@ -10383,7 +11342,7 @@
           "quantity": 3
         },
         {
-          "code": "owlbear_hair",
+          "code": "owlbear_claw",
           "quantity": 4
         }
       ],
@@ -10400,27 +11359,27 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 160
       },
       {
-        "name": "dmg_fire",
+        "code": "dmg_fire",
         "value": 8
       },
       {
-        "name": "dmg_earth",
+        "code": "dmg_earth",
         "value": 8
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 8
       },
       {
-        "name": "res_water",
+        "code": "res_water",
         "value": 8
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 7
       }
     ],
@@ -10462,27 +11421,27 @@
     "description": "",
     "effects": [
       {
-        "name": "hp",
+        "code": "hp",
         "value": 160
       },
       {
-        "name": "dmg_air",
+        "code": "dmg_air",
         "value": 8
       },
       {
-        "name": "dmg_water",
+        "code": "dmg_water",
         "value": 8
       },
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 8
       },
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 8
       },
       {
-        "name": "haste",
+        "code": "haste",
         "value": 7
       }
     ],
@@ -10524,11 +11483,11 @@
     "description": "",
     "effects": [
       {
-        "name": "res_fire",
+        "code": "res_fire",
         "value": 15
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 15
       }
     ],
@@ -10570,11 +11529,11 @@
     "description": "",
     "effects": [
       {
-        "name": "res_earth",
+        "code": "res_earth",
         "value": 15
       },
       {
-        "name": "res_air",
+        "code": "res_air",
         "value": 15
       }
     ],
@@ -10587,7 +11546,7 @@
           "quantity": 7
         },
         {
-          "code": "demon_horn",
+          "code": "lizard_eye",
           "quantity": 3
         },
         {
@@ -10612,12 +11571,16 @@
     "code": "blade_of_hell",
     "level": 40,
     "type": "weapon",
-    "subtype": "sword",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_earth",
+        "code": "attack_earth",
         "value": 115
+      },
+      {
+        "code": "critical_strike",
+        "value": 5
       }
     ],
     "craft": {
@@ -10701,7 +11664,7 @@
     "description": "",
     "effects": [
       {
-        "name": "heal",
+        "code": "heal",
         "value": 500
       }
     ],
@@ -10727,7 +11690,7 @@
     "description": "Gives 10% earth resistance at the start of fight.",
     "effects": [
       {
-        "name": "boost_res_earth",
+        "code": "boost_res_earth",
         "value": 10
       }
     ],
@@ -10761,7 +11724,7 @@
     "description": "Gives 10% fire resistance at the start of fight.",
     "effects": [
       {
-        "name": "boost_res_fire",
+        "code": "boost_res_fire",
         "value": 10
       }
     ],
@@ -10795,7 +11758,7 @@
     "description": "Gives 10% water resistance at the start of fight.",
     "effects": [
       {
-        "name": "boost_res_water",
+        "code": "boost_res_water",
         "value": 10
       }
     ],
@@ -10829,7 +11792,7 @@
     "description": "Gives 10% air resistance at the start of fight.",
     "effects": [
       {
-        "name": "boost_res_air",
+        "code": "boost_res_air",
         "value": 10
       }
     ],
@@ -10855,31 +11818,74 @@
     "tradeable": true
   },
   {
-    "name": "Krampus Horn",
-    "code": "krampus_horn",
+    "name": "Celest Ring",
+    "code": "celest_ring",
     "level": 40,
-    "type": "resource",
-    "subtype": "mob",
-    "description": "",
-    "effects": [],
-    "craft": null,
-    "tradeable": true
-  },
-  {
-    "name": "Christmas Cane",
-    "code": "christmas_cane",
-    "level": 40,
-    "type": "weapon",
-    "subtype": "cane",
+    "type": "ring",
+    "subtype": "",
     "description": "",
     "effects": [
       {
-        "name": "attack_water",
-        "value": 45
+        "code": "dmg_fire",
+        "value": 20
       },
       {
-        "name": "attack_air",
-        "value": 45
+        "code": "dmg_water",
+        "value": 20
+      },
+      {
+        "code": "prospecting",
+        "value": 30
+      }
+    ],
+    "craft": {
+      "skill": "jewelrycrafting",
+      "level": 40,
+      "items": [
+        {
+          "code": "strangold",
+          "quantity": 8
+        },
+        {
+          "code": "maple_plank",
+          "quantity": 4
+        },
+        {
+          "code": "ruby",
+          "quantity": 2
+        },
+        {
+          "code": "sapphire",
+          "quantity": 2
+        },
+        {
+          "code": "efreet_cloth",
+          "quantity": 2
+        },
+        {
+          "code": "astralyte_crystal",
+          "quantity": 2
+        }
+      ],
+      "quantity": 1
+    },
+    "tradeable": true
+  },
+  {
+    "name": "Frozen Pickaxe",
+    "code": "frozen_pickaxe",
+    "level": 40,
+    "type": "weapon",
+    "subtype": "tool",
+    "description": "Reduces cooldown by 30% when a character mines a resource.",
+    "effects": [
+      {
+        "code": "attack_earth",
+        "value": 5
+      },
+      {
+        "code": "mining",
+        "value": -30
       }
     ],
     "craft": null,
@@ -10894,51 +11900,11 @@
     "description": "Reduces cooldown by 30% when a character harvest a plant.",
     "effects": [
       {
-        "name": "attack_air",
+        "code": "attack_air",
         "value": 5
       },
       {
-        "name": "alchemy",
-        "value": -30
-      }
-    ],
-    "craft": null,
-    "tradeable": true
-  },
-  {
-    "name": "Frozen Pickaxe",
-    "code": "frozen_pickaxe",
-    "level": 40,
-    "type": "weapon",
-    "subtype": "tool",
-    "description": "Reduces cooldown by 30% when a character mines a resource.",
-    "effects": [
-      {
-        "name": "attack_earth",
-        "value": 5
-      },
-      {
-        "name": "mining",
-        "value": -30
-      }
-    ],
-    "craft": null,
-    "tradeable": true
-  },
-  {
-    "name": "Frozen Axe",
-    "code": "frozen_axe",
-    "level": 40,
-    "type": "weapon",
-    "subtype": "tool",
-    "description": "Reduces cooldown by 30% when a character logs a tree.",
-    "effects": [
-      {
-        "name": "attack_earth",
-        "value": 5
-      },
-      {
-        "name": "woodcutting",
+        "code": "alchemy",
         "value": -30
       }
     ],
@@ -10954,11 +11920,31 @@
     "description": "Reduces cooldown by 30% when a character is fishing.",
     "effects": [
       {
-        "name": "attack_water",
+        "code": "attack_water",
         "value": 5
       },
       {
-        "name": "fishing",
+        "code": "fishing",
+        "value": -30
+      }
+    ],
+    "craft": null,
+    "tradeable": true
+  },
+  {
+    "name": "Frozen Axe",
+    "code": "frozen_axe",
+    "level": 40,
+    "type": "weapon",
+    "subtype": "tool",
+    "description": "Reduces cooldown by 30% when a character logs a tree.",
+    "effects": [
+      {
+        "code": "attack_earth",
+        "value": 5
+      },
+      {
+        "code": "woodcutting",
         "value": -30
       }
     ],

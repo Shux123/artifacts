@@ -999,7 +999,7 @@
     "y": 2,
     "content": {
       "type": "resource",
-      "code": "sunflower"
+      "code": "sunflower_field"
     }
   },
   {
@@ -1777,10 +1777,13 @@
   },
   {
     "name": "Forest",
-    "skin": "forest_road2",
+    "skin": "forest_highwayman1",
     "x": 2,
     "y": 8,
-    "content": null
+    "content": {
+      "type": "monster",
+      "code": "highwayman"
+    }
   },
   {
     "name": "Forest",
@@ -1798,10 +1801,13 @@
   },
   {
     "name": "Forest",
-    "skin": "forest_3",
+    "skin": "forest_cursed_tree1",
     "x": 5,
     "y": 8,
-    "content": null
+    "content": {
+      "type": "monster",
+      "code": "cursed_tree"
+    }
   },
   {
     "name": "Forest",
@@ -2117,7 +2123,7 @@
   },
   {
     "name": "Forest",
-    "skin": "forest_4",
+    "skin": "forest_3",
     "x": -3,
     "y": 11,
     "content": null
@@ -2236,10 +2242,13 @@
   },
   {
     "name": "Forest",
-    "skin": "forest_1",
+    "skin": "forest_spider1",
     "x": -3,
     "y": 12,
-    "content": null
+    "content": {
+      "type": "monster",
+      "code": "spider"
+    }
   },
   {
     "name": "Forest",
@@ -2445,7 +2454,10 @@
     "skin": "forest_road5",
     "x": 6,
     "y": 13,
-    "content": null
+    "content": {
+      "type": "npc",
+      "code": "rune_vendor"
+    }
   },
   {
     "name": "Forest",
@@ -2545,7 +2557,7 @@
   },
   {
     "name": "Forest",
-    "skin": "forest_road7",
+    "skin": "forest_2",
     "x": 2,
     "y": 14,
     "content": null
@@ -2663,14 +2675,14 @@
   },
   {
     "name": "Forest",
-    "skin": "forest_boat1",
+    "skin": "forest_3",
     "x": 1,
     "y": 15,
     "content": null
   },
   {
     "name": "Forest",
-    "skin": "forest_road20",
+    "skin": "forest_3",
     "x": 2,
     "y": 15,
     "content": null
@@ -2736,313 +2748,6 @@
     "skin": "forest_3",
     "x": 11,
     "y": 15,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake1",
-    "x": -5,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake1",
-    "x": -4,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake5",
-    "x": -3,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake1",
-    "x": -2,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake5",
-    "x": -1,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake1",
-    "x": 0,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake4",
-    "x": 1,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake2",
-    "x": 2,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake3",
-    "x": 3,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake1",
-    "x": 4,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake5",
-    "x": 5,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake5",
-    "x": 6,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake1",
-    "x": 7,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake1",
-    "x": 8,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake5",
-    "x": 9,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake1",
-    "x": 10,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Forest",
-    "skin": "forest_snow_lake1",
-    "x": 11,
-    "y": 16,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_4",
-    "x": -5,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_3",
-    "x": -4,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_3",
-    "x": -3,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_1",
-    "x": -2,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_2",
-    "x": -1,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_3",
-    "x": 0,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_2",
-    "x": 1,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_road1",
-    "x": 2,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_1",
-    "x": 3,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_4",
-    "x": 4,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_2",
-    "x": 5,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_2",
-    "x": 6,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_1",
-    "x": 7,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_2",
-    "x": 8,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_gingerbread2",
-    "x": 9,
-    "y": 17,
-    "content": {
-      "type": "monster",
-      "code": "gingerbread"
-    }
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_1",
-    "x": 10,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_4",
-    "x": 11,
-    "y": 17,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_3",
-    "x": -5,
-    "y": 18,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_3",
-    "x": -4,
-    "y": 18,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_frostslime1",
-    "x": -3,
-    "y": 18,
-    "content": {
-      "type": "monster",
-      "code": "frost_slime"
-    }
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_1",
-    "x": -2,
-    "y": 18,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_2",
-    "x": -1,
-    "y": 18,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_3",
-    "x": 0,
-    "y": 18,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_2",
-    "x": 1,
-    "y": 18,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_road2",
-    "x": 2,
-    "y": 18,
-    "content": null
-  },
-  {
-    "name": "Snow",
-    "skin": "snow_2",
-    "x": 3,
-    "y": 18,
     "content": null
   }
 ]

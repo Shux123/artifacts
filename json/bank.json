@@ -1,205 +1,137 @@
 {
-  "gold": 8000,
+  "gold": 0,
   "items": [
     {
       "code": "sap",
-      "quantity": 614
+      "quantity": 326
     },
     {
       "code": "emerald_stone",
-      "quantity": 28
-    },
-    {
-      "code": "ruby_stone",
-      "quantity": 35
-    },
-    {
-      "code": "sapphire_stone",
-      "quantity": 38
+      "quantity": 44
     },
     {
       "code": "egg",
-      "quantity": 751
+      "quantity": 258
     },
     {
       "code": "raw_chicken",
-      "quantity": 14
+      "quantity": 189
     },
     {
-      "code": "algae",
-      "quantity": 52
+      "code": "sapphire_stone",
+      "quantity": 48
+    },
+    {
+      "code": "feather",
+      "quantity": 114
+    },
+    {
+      "code": "ash_plank",
+      "quantity": 101
+    },
+    {
+      "code": "ruby_stone",
+      "quantity": 43
     },
     {
       "code": "topaz_stone",
-      "quantity": 37
+      "quantity": 54
     },
     {
-      "code": "apple",
-      "quantity": 806
+      "code": "emerald",
+      "quantity": 3
     },
     {
       "code": "wooden_staff",
       "quantity": 1
     },
     {
-      "code": "enchanted_fabric",
-      "quantity": 4
-    },
-    {
-      "code": "blue_slimeball",
-      "quantity": 110
-    },
-    {
-      "code": "copper",
-      "quantity": 14
-    },
-    {
-      "code": "spruce_plank",
-      "quantity": 3
-    },
-    {
-      "code": "raw_beef",
-      "quantity": 146
-    },
-    {
-      "code": "milk_bucket",
-      "quantity": 80
-    },
-    {
-      "code": "forest_ring",
-      "quantity": 9
-    },
-    {
-      "code": "serpent_skin",
-      "quantity": 108
-    },
-    {
-      "code": "flying_wing",
-      "quantity": 79
-    },
-    {
-      "code": "magical_cure",
-      "quantity": 4
-    },
-    {
-      "code": "mushroom",
-      "quantity": 27
-    },
-    {
-      "code": "emerald",
-      "quantity": 5
-    },
-    {
-      "code": "topaz",
-      "quantity": 2
-    },
-    {
-      "code": "hardwood_plank",
-      "quantity": 189
-    },
-    {
-      "code": "steel",
-      "quantity": 12
-    },
-    {
-      "code": "skeleton_skull",
-      "quantity": 23
-    },
-    {
-      "code": "ruby",
-      "quantity": 2
-    },
-    {
-      "code": "tasks_coin",
-      "quantity": 48
-    },
-    {
-      "code": "cowhide",
-      "quantity": 20
-    },
-    {
-      "code": "feather",
-      "quantity": 47
-    },
-    {
-      "code": "wolf_hair",
-      "quantity": 24
-    },
-    {
-      "code": "wolf_bone",
-      "quantity": 19
-    },
-    {
-      "code": "iron",
-      "quantity": 113
-    },
-    {
-      "code": "raw_wolf_meat",
-      "quantity": 18
-    },
-    {
-      "code": "pig_skin",
-      "quantity": 53
-    },
-    {
-      "code": "sunflower",
-      "quantity": 885
-    },
-    {
-      "code": "gudgeon",
-      "quantity": 897
-    },
-    {
-      "code": "earth_boost_potion",
-      "quantity": 12
-    },
-    {
-      "code": "skeleton_bone",
-      "quantity": 29
-    },
-    {
-      "code": "frost_slimeball",
-      "quantity": 64
-    },
-    {
-      "code": "yellow_candy",
-      "quantity": 5
-    },
-    {
-      "code": "green_slimeball",
-      "quantity": 63
+      "code": "apple",
+      "quantity": 577
     },
     {
       "code": "yellow_slimeball",
-      "quantity": 38
+      "quantity": 70
     },
     {
-      "code": "ash_plank",
-      "quantity": 1
+      "code": "green_slimeball",
+      "quantity": 57
     },
     {
-      "code": "shrimp",
-      "quantity": 480
+      "code": "milk_bucket",
+      "quantity": 48
+    },
+    {
+      "code": "sapphire",
+      "quantity": 9
+    },
+    {
+      "code": "ruby",
+      "quantity": 7
+    },
+    {
+      "code": "topaz",
+      "quantity": 4
+    },
+    {
+      "code": "magical_cure",
+      "quantity": 3
+    },
+    {
+      "code": "astralyte_crystal",
+      "quantity": 4
     },
     {
       "code": "red_slimeball",
-      "quantity": 17
+      "quantity": 102
     },
     {
-      "code": "ogre_eye",
-      "quantity": 6
+      "code": "blue_slimeball",
+      "quantity": 83
     },
     {
-      "code": "ogre_skin",
-      "quantity": 14
+      "code": "copper",
+      "quantity": 19
     },
     {
-      "code": "birch_wood",
-      "quantity": 600
+      "code": "raw_beef",
+      "quantity": 89
     },
     {
-      "code": "ash_wood",
-      "quantity": 240
+      "code": "cowhide",
+      "quantity": 38
+    },
+    {
+      "code": "enchanted_fabric",
+      "quantity": 3
+    },
+    {
+      "code": "spruce_plank",
+      "quantity": 57
+    },
+    {
+      "code": "mushroom",
+      "quantity": 21
+    },
+    {
+      "code": "tasks_coin",
+      "quantity": 15
+    },
+    {
+      "code": "serpent_skin",
+      "quantity": 36
+    },
+    {
+      "code": "flying_wing",
+      "quantity": 41
+    },
+    {
+      "code": "green_cloth",
+      "quantity": 26
+    },
+    {
+      "code": "iron",
+      "quantity": 217
     }
   ]
 }

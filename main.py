@@ -29,11 +29,63 @@ names_for_btns = {
     'resource': ['Gathering'],
     'monster': ['Fight'],
     'workshop': ['Craft', 'Recycling'],
-    'bank': ['Deposit', 'Withdraw', 'Depo $', 'Withdraw $'],
+    'bank': ['Deposit', 'Withdraw', 'Depo $', 'Withdraw $',
+        'Buy expansion'],
     'tasks_master': ['New task', 'Task trade', 'Complete task',
         'Cancel task', 'Task exchange'],
-    'grand_exchange': [],
-    'santa_claus': []
+    'grand_exchange': ['Buy item', 'Create sell order',
+        'Cancel sell order', 'Get sell orders',
+        'Sell item hystory'],
+    'santa_claus': [],
+    'npc': ['Buy item', 'Sell item', 'Items in shop'],
+    'right_btns_panel': ['Rest', 'Logs', 'Maps', 'Char info', 'Skills',
+        'Stats', 'Clothes', 'Inventory', 'Bank',],
+    'bottom_btns_panel': ['Equip', 'Unequip', 'Crafted by skills',
+        'Item info', 'Monster info', 'Use Item', 'Delete item', 
+        'Events']
+}
+btns_names_to_action = {
+    'Move': 'move',
+    'Gathering': 'gathering',
+    'Fight': 'fight',
+    'Craft': 'craft',
+    'Recycling': 'recycling',
+    'Deposit': 'deposit',
+    'Withdraw': 'withdraw',
+    'Depo $': 'deposit_gold',
+    'Withdraw $': 'withdraw_gold',
+    'Buy expansion': 'buy_bank_expansion',
+    'New task': 'task_action',
+    'Task trade': 'task_trade',
+    'Complete task': 'task_action',
+    'Cancel task': 'task_action',
+    'Task exchange': 'task_action',
+    'Rest': 'rest',
+    'Logs': 'logs',
+    'Maps': 'maps',
+    'Map': 'map',
+    'Char info': 'view_info_about_char',
+    'Skills': 'view_info_about_char',
+    'Stats': 'view_info_about_char',
+    'Clothes': 'view_info_about_char',
+    'Inventory': 'view_info_about_char',
+    'Bank': 'view_info_about_char',
+    'Equip': 'equip_unequip',
+    'Unequip': 'equip_unequip',
+    'Crafted by skills': 'get_crafted_items_by_skills',
+    'Item info': 'get_item_info',
+    'Monster info': 'get_monster_info',
+    'Use Item': 'use_item',
+    'Delete item': 'delete_item',
+    'Events': 'get_active_events',
+    'Buy item': 'npc_buy_sell_item',
+    'Sell item': 'npc_buy_sell_item',
+    'Items in shop': 'get_npc_items',
+    'Buy item': 'ge_buy_item',
+    'Create sell order': 'ge_create_sell_order',
+    'Cancel sell order': 'ge_cancel_sell_order',
+    'Get sell orders': 'ge_get_sell_orders',
+    'Sell item hystory': 'ge_get_hystory'
 }
 
 class WorkerSignal(QObject):
@@ -118,11 +170,7 @@ class MainWindow(QMainWindow):
         self.location_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.location_layout.addWidget(self.location_label)
         
-        buttons = [
-            'Rest', 'Logs', 'Maps', 'Char info', 'Skills',
-            'Stats', 'Clothes', 'Inventory', 'Bank',
-        ]
-        for button in buttons:
+        for button in names_for_btns['right_btns_panel']:
             btn = QPushButton(button)
             btn.setFont(self.my_font)
             btns_layout.addWidget(btn)
@@ -150,11 +198,8 @@ class MainWindow(QMainWindow):
         control_layout_2.addWidget(self.find_button)
 
         control_layout_3 = QHBoxLayout()
-        buttons = [
-            'Equip', 'Unequip', 'Crafted by skills', 'Item info',
-            'Monster info', 'Use Item', 'Delete item'
-        ]
-        for button in buttons:
+
+        for button in names_for_btns['bottom_btns_panel']:
             btn = QPushButton(button)
             btn.setFont(self.my_font)
             control_layout_3.addWidget(btn)
@@ -198,49 +243,26 @@ class MainWindow(QMainWindow):
         self.get_info(action='map')
 
     def get_info(self, btn=None, action=None):
+        info = {}
         if btn:
-            action = btn.text().lower()
+            button_name = btn.text()
+            info['button_name'] = button_name.lower()
+        if not action:
+            action = btns_names_to_action[button_name]
+        info['x'] = self.x_box.text()
+        info['y'] = self.y_box.text()
+        info['text'] = self.control_edit.text().lower()
+        info['quantity'] = self.number_edit.text()
+        answer = getattr(self.char, action)(info)
+                
         if action in ('move', 'map'):
-            x = self.x_box.text()
-            y = self.y_box.text()
-            answer = getattr(self.char, action)(x, y)
-            self.update_location(answer, x, y)
-        elif action in ('char info', 'skills', 'stats','clothes', 'inventory', 'bank'):
-            answer = self.char.view_info_about_char(action)
-        elif action in ('equip', 'unequip'):
-            item = self.control_edit.text().lower()
-            quantity = self.number_edit.text()
-            answer = getattr(self.char, 'equip_unequip')(action, item, quantity)
-        elif action in ('crafted by skills', 'item info', 'monster info'):
-            text = self.control_edit.text().lower()
-            if action == 'crafted by skills':
-                answer = self.char.get_crafted_items_by_skills(text)
-            elif action == 'item info':
-                answer = self.char.get_item_info(text)
-            elif action == 'monster info':
-                answer = self.char.get_monster_info(text)
-        elif action in (
-            'craft', 'use item', 'recycling', 'delete item', 'use',
-            'deposit', 'withdraw', 'task trade'):
-            action = action.split()[0]
-            action = ''.join(action)
-            item = self.control_edit.text().lower()
-            quantity = self.number_edit.text()
-            answer = getattr(self.char, action)(item, quantity)
-        elif 'task' in action and action != 'task trade':
-            action = action.replace('task', '').strip()
-            answer = self.char.task_action(f"task/{action}")
-        elif action == 'depo $':
-            answer = self.char.deposit_gold(self.number_edit.text())
-        elif action == 'withdraw $':
-            answer = self.char.withdraw_gold(self.number_edit.text())
-        else:
-            answer = getattr(self.char, action)()
+            self.update_location(answer, info['x'], info['y'])
+
         self.show_info(answer)
 
     def show_info(self, answer):
         text = ''
-        for a in answer['new_data']:
+        for a in answer['data']:
             text += a
             text += '\n'
         self.info_view.setText(text)
@@ -252,6 +274,8 @@ class MainWindow(QMainWindow):
         self.update_info()
 
     def update_location(self, answer, x, y):
+        if 'error' in answer:
+            return
         if len(self.btns_pointers) > 0:
             for btn in self.btns_pointers:
                 btn.setParent(None)
@@ -271,7 +295,7 @@ class MainWindow(QMainWindow):
                 self.location_layout.addWidget(btn)
                 btn.pressed.connect(lambda btn=btn: self.get_info(btn=btn))
             
-        else:
+        elif 'name' in answer:
             self.location_label.setText(
                 '\n'.join(['Location:', answer['name'], f"x: {x}, y: {y}"]))
 
@@ -288,16 +312,16 @@ class MainWindow(QMainWindow):
         self.gold_label.setText(f"G: {self.char.char_info['gold']}")
 
     def script_start(self):
-        action = self.script_edit.text().split()
+        actions = self.script_edit.text().split()
         number = int(self.script_number.text())
         if number > 0:
-            current_action = action[0]
+            current_action = actions[0]
             self.get_info(action=current_action)
             number -= 1
             self.script_number.setValue(number)
-            action = action[1:]
-            action.append(current_action)
-            self.script_edit.setText(' '.join(action))
+            actions = actions[1:]
+            actions.append(current_action)
+            self.script_edit.setText(' '.join(actions))
 
     def script_stop(self):
         self.script_number.setValue(0)

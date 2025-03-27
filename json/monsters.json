@@ -12,6 +12,8 @@
     "res_earth": 0,
     "res_water": 0,
     "res_air": 0,
+    "critical_strike": 0,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 3,
     "drops": [
@@ -32,6 +34,12 @@
         "rate": 8,
         "min_quantity": 1,
         "max_quantity": 1
+      },
+      {
+        "code": "golden_egg",
+        "rate": 1000,
+        "min_quantity": 1,
+        "max_quantity": 1
       }
     ]
   },
@@ -48,6 +56,8 @@
     "res_earth": 25,
     "res_water": 0,
     "res_air": 0,
+    "critical_strike": 0,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 5,
     "drops": [
@@ -78,6 +88,8 @@
     "res_earth": 0,
     "res_water": 0,
     "res_air": 25,
+    "critical_strike": 0,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 5,
     "drops": [
@@ -108,6 +120,8 @@
     "res_earth": 0,
     "res_water": 25,
     "res_air": 0,
+    "critical_strike": 0,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 5,
     "drops": [
@@ -138,6 +152,8 @@
     "res_earth": 0,
     "res_water": 0,
     "res_air": 0,
+    "critical_strike": 0,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 5,
     "drops": [
@@ -168,6 +184,8 @@
     "res_earth": -30,
     "res_water": 30,
     "res_air": 0,
+    "critical_strike": 0,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 7,
     "drops": [
@@ -181,7 +199,7 @@
         "code": "milk_bucket",
         "rate": 12,
         "min_quantity": 1,
-        "max_quantity": 1
+        "max_quantity": 2
       },
       {
         "code": "cowhide",
@@ -204,6 +222,8 @@
     "res_earth": 20,
     "res_water": 0,
     "res_air": -30,
+    "critical_strike": 5,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 7,
     "drops": [
@@ -215,37 +235,7 @@
       },
       {
         "code": "forest_ring",
-        "rate": 100,
-        "min_quantity": 1,
-        "max_quantity": 1
-      }
-    ]
-  },
-  {
-    "name": "Frost Slime",
-    "code": "frost_slime",
-    "level": 10,
-    "hp": 300,
-    "attack_fire": 0,
-    "attack_earth": 0,
-    "attack_water": 15,
-    "attack_air": 0,
-    "res_fire": 50,
-    "res_earth": 50,
-    "res_water": 50,
-    "res_air": 50,
-    "min_gold": 0,
-    "max_gold": 5,
-    "drops": [
-      {
-        "code": "frost_slimeball",
-        "rate": 10,
-        "min_quantity": 1,
-        "max_quantity": 2
-      },
-      {
-        "code": "gift",
-        "rate": 300,
+        "rate": 200,
         "min_quantity": 1,
         "max_quantity": 1
       }
@@ -264,6 +254,8 @@
     "res_earth": 0,
     "res_water": -20,
     "res_air": 40,
+    "critical_strike": 5,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 8,
     "drops": [
@@ -281,7 +273,7 @@
       },
       {
         "code": "forest_ring",
-        "rate": 100,
+        "rate": 200,
         "min_quantity": 1,
         "max_quantity": 1
       }
@@ -294,15 +286,23 @@
     "hp": 400,
     "attack_fire": 0,
     "attack_earth": 0,
-    "attack_water": 18,
-    "attack_air": 18,
+    "attack_water": 12,
+    "attack_air": 12,
     "res_fire": -10,
     "res_earth": -10,
     "res_water": 10,
     "res_air": 10,
+    "critical_strike": 50,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 8,
     "drops": [
+      {
+        "code": "wolf_ears",
+        "rate": 200,
+        "min_quantity": 1,
+        "max_quantity": 1
+      },
       {
         "code": "raw_wolf_meat",
         "rate": 6,
@@ -324,32 +324,34 @@
     ]
   },
   {
-    "name": "Gingerbread",
-    "code": "gingerbread",
+    "name": "Highwayman",
+    "code": "highwayman",
     "level": 15,
-    "hp": 400,
+    "hp": 380,
     "attack_fire": 0,
     "attack_earth": 0,
     "attack_water": 0,
-    "attack_air": 40,
-    "res_fire": 20,
-    "res_earth": 20,
+    "attack_air": 25,
+    "res_fire": 10,
+    "res_earth": 10,
     "res_water": -10,
-    "res_air": -20,
+    "res_air": -10,
+    "critical_strike": 35,
+    "effects": [],
     "min_gold": 0,
-    "max_gold": 10,
+    "max_gold": 8,
     "drops": [
       {
-        "code": "gingerbread",
-        "rate": 5,
-        "min_quantity": 1,
-        "max_quantity": 4
-      },
-      {
-        "code": "gift",
-        "rate": 150,
+        "code": "highwayman_dagger",
+        "rate": 200,
         "min_quantity": 1,
         "max_quantity": 1
+      },
+      {
+        "code": "green_cloth",
+        "rate": 12,
+        "min_quantity": 1,
+        "max_quantity": 2
       }
     ]
   },
@@ -366,6 +368,8 @@
     "res_earth": 0,
     "res_water": -10,
     "res_air": -10,
+    "critical_strike": 5,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 8,
     "drops": [
@@ -390,12 +394,14 @@
     "hp": 480,
     "attack_fire": 0,
     "attack_earth": 0,
-    "attack_water": 40,
+    "attack_water": 30,
     "attack_air": 0,
     "res_fire": 0,
     "res_earth": -10,
     "res_water": 40,
     "res_air": 0,
+    "critical_strike": 30,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 8,
     "drops": [
@@ -420,6 +426,8 @@
     "res_earth": 30,
     "res_water": 0,
     "res_air": 0,
+    "critical_strike": 5,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 10,
     "drops": [
@@ -437,9 +445,46 @@
       },
       {
         "code": "wooden_club",
-        "rate": 100,
+        "rate": 200,
         "min_quantity": 1,
         "max_quantity": 1
+      }
+    ]
+  },
+  {
+    "name": "Spider",
+    "code": "spider",
+    "level": 20,
+    "hp": 550,
+    "attack_fire": 40,
+    "attack_earth": 0,
+    "attack_water": 40,
+    "attack_air": 0,
+    "res_fire": 0,
+    "res_earth": 5,
+    "res_water": -30,
+    "res_air": 5,
+    "critical_strike": 5,
+    "effects": [
+      {
+        "code": "poison",
+        "value": 20
+      }
+    ],
+    "min_gold": 0,
+    "max_gold": 10,
+    "drops": [
+      {
+        "code": "old_boots",
+        "rate": 200,
+        "min_quantity": 1,
+        "max_quantity": 1
+      },
+      {
+        "code": "spider_leg",
+        "rate": 12,
+        "min_quantity": 1,
+        "max_quantity": 2
       }
     ]
   },
@@ -448,19 +493,32 @@
     "code": "vampire",
     "level": 24,
     "hp": 680,
-    "attack_fire": 24,
+    "attack_fire": 20,
     "attack_earth": 0,
     "attack_water": 0,
-    "attack_air": 60,
+    "attack_air": 50,
     "res_fire": 0,
     "res_earth": -15,
     "res_water": -15,
     "res_air": 30,
+    "critical_strike": 35,
+    "effects": [
+      {
+        "code": "lifesteal",
+        "value": 10
+      }
+    ],
     "min_gold": 0,
     "max_gold": 10,
     "drops": [
       {
         "code": "vampire_blood",
+        "rate": 12,
+        "min_quantity": 1,
+        "max_quantity": 2
+      },
+      {
+        "code": "vampire_tooth",
         "rate": 12,
         "min_quantity": 1,
         "max_quantity": 2
@@ -471,15 +529,22 @@
     "name": "Bandit Lizard",
     "code": "bandit_lizard",
     "level": 25,
-    "hp": 800,
-    "attack_fire": 44,
+    "hp": 780,
+    "attack_fire": 40,
     "attack_earth": 0,
-    "attack_water": 44,
+    "attack_water": 40,
     "attack_air": 0,
     "res_fire": -5,
     "res_earth": 25,
     "res_water": -5,
     "res_air": 25,
+    "critical_strike": 5,
+    "effects": [
+      {
+        "code": "poison",
+        "value": 20
+      }
+    ],
     "min_gold": 0,
     "max_gold": 15,
     "drops": [
@@ -490,8 +555,20 @@
         "max_quantity": 1
       },
       {
+        "code": "lizard_eye",
+        "rate": 10,
+        "min_quantity": 1,
+        "max_quantity": 1
+      },
+      {
         "code": "lizard_skin",
         "rate": 10,
+        "min_quantity": 1,
+        "max_quantity": 1
+      },
+      {
+        "code": "dreadful_book",
+        "rate": 1500,
         "min_quantity": 1,
         "max_quantity": 1
       }
@@ -510,14 +587,16 @@
     "res_earth": 20,
     "res_water": 10,
     "res_air": 0,
+    "critical_strike": 5,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 12,
     "drops": [
       {
         "code": "cyclops_eye",
-        "rate": 12,
+        "rate": 6,
         "min_quantity": 1,
-        "max_quantity": 2
+        "max_quantity": 1
       }
     ]
   },
@@ -534,6 +613,8 @@
     "res_earth": -5,
     "res_water": -5,
     "res_air": -5,
+    "critical_strike": 5,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 12,
     "drops": [
@@ -557,13 +638,20 @@
     "level": 28,
     "hp": 1750,
     "attack_fire": 0,
-    "attack_earth": 50,
+    "attack_earth": 45,
     "attack_water": 0,
     "attack_air": 0,
     "res_fire": 10,
     "res_earth": 60,
     "res_water": 10,
     "res_air": 10,
+    "critical_strike": 5,
+    "effects": [
+      {
+        "code": "burn",
+        "value": 15
+      }
+    ],
     "min_gold": 0,
     "max_gold": 12,
     "drops": [
@@ -594,11 +682,19 @@
     "res_earth": -20,
     "res_water": 45,
     "res_air": 0,
+    "critical_strike": 5,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 15,
     "drops": [
       {
         "code": "owlbear_hair",
+        "rate": 12,
+        "min_quantity": 1,
+        "max_quantity": 2
+      },
+      {
+        "code": "owlbear_claw",
         "rate": 12,
         "min_quantity": 1,
         "max_quantity": 2
@@ -609,7 +705,7 @@
     "name": "Demon",
     "code": "demon",
     "level": 30,
-    "hp": 999,
+    "hp": 900,
     "attack_fire": 90,
     "attack_earth": 0,
     "attack_water": 0,
@@ -618,6 +714,13 @@
     "res_earth": 0,
     "res_water": -10,
     "res_air": 0,
+    "critical_strike": 5,
+    "effects": [
+      {
+        "code": "burn",
+        "value": 20
+      }
+    ],
     "min_gold": 0,
     "max_gold": 20,
     "drops": [
@@ -648,6 +751,13 @@
     "res_earth": 24,
     "res_water": 18,
     "res_air": 18,
+    "critical_strike": 5,
+    "effects": [
+      {
+        "code": "reconstitution",
+        "value": 20
+      }
+    ],
     "min_gold": 0,
     "max_gold": 15,
     "drops": [
@@ -666,42 +776,6 @@
     ]
   },
   {
-    "name": "Snowman",
-    "code": "snowman",
-    "level": 30,
-    "hp": 1800,
-    "attack_fire": 0,
-    "attack_earth": 0,
-    "attack_water": 50,
-    "attack_air": 0,
-    "res_fire": -20,
-    "res_earth": 0,
-    "res_water": -20,
-    "res_air": 0,
-    "min_gold": 0,
-    "max_gold": 12,
-    "drops": [
-      {
-        "code": "carrot",
-        "rate": 12,
-        "min_quantity": 1,
-        "max_quantity": 2
-      },
-      {
-        "code": "snowman_hat",
-        "rate": 600,
-        "min_quantity": 1,
-        "max_quantity": 1
-      },
-      {
-        "code": "gift",
-        "rate": 75,
-        "min_quantity": 1,
-        "max_quantity": 1
-      }
-    ]
-  },
-  {
     "name": "Cultist Acolyte",
     "code": "cultist_acolyte",
     "level": 33,
@@ -714,6 +788,8 @@
     "res_earth": 10,
     "res_water": -10,
     "res_air": 40,
+    "critical_strike": 5,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 15,
     "drops": [
@@ -732,6 +808,37 @@
     ]
   },
   {
+    "name": "Cursed Tree",
+    "code": "cursed_tree",
+    "level": 34,
+    "hp": 1550,
+    "attack_fire": 0,
+    "attack_earth": 0,
+    "attack_water": 130,
+    "attack_air": 0,
+    "res_fire": 5,
+    "res_earth": -5,
+    "res_water": -5,
+    "res_air": 5,
+    "critical_strike": 20,
+    "effects": [
+      {
+        "code": "lifesteal",
+        "value": 5
+      }
+    ],
+    "min_gold": 0,
+    "max_gold": 15,
+    "drops": [
+      {
+        "code": "cursed_wood",
+        "rate": 10,
+        "min_quantity": 1,
+        "max_quantity": 2
+      }
+    ]
+  },
+  {
     "name": "Cultist Emperor",
     "code": "cultist_emperor",
     "level": 35,
@@ -744,12 +851,19 @@
     "res_earth": 10,
     "res_water": 0,
     "res_air": -10,
+    "critical_strike": 5,
+    "effects": [
+      {
+        "code": "healing",
+        "value": 5
+      }
+    ],
     "min_gold": 0,
     "max_gold": 18,
     "drops": [
       {
         "code": "malefic_cloth",
-        "rate": 160,
+        "rate": 20,
         "min_quantity": 1,
         "max_quantity": 1
       },
@@ -774,6 +888,8 @@
     "res_earth": 30,
     "res_water": -20,
     "res_air": -20,
+    "critical_strike": 5,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 15,
     "drops": [
@@ -804,6 +920,13 @@
     "res_earth": 5,
     "res_water": 5,
     "res_air": -20,
+    "critical_strike": 5,
+    "effects": [
+      {
+        "code": "poison",
+        "value": 50
+      }
+    ],
     "min_gold": 0,
     "max_gold": 17,
     "drops": [
@@ -828,6 +951,8 @@
     "res_earth": 20,
     "res_water": -20,
     "res_air": 20,
+    "critical_strike": 10,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 17,
     "drops": [
@@ -852,6 +977,8 @@
     "res_earth": 50,
     "res_water": 50,
     "res_air": 50,
+    "critical_strike": 5,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 30,
     "drops": [
@@ -906,6 +1033,8 @@
     "res_earth": -5,
     "res_water": 10,
     "res_air": 10,
+    "critical_strike": 5,
+    "effects": [],
     "min_gold": 0,
     "max_gold": 25,
     "drops": [
@@ -927,7 +1056,7 @@
     "name": "Hellhound",
     "code": "hellhound",
     "level": 40,
-    "hp": 3750,
+    "hp": 3250,
     "attack_fire": 90,
     "attack_earth": 50,
     "attack_water": 0,
@@ -936,6 +1065,13 @@
     "res_earth": 10,
     "res_water": -20,
     "res_air": 10,
+    "critical_strike": 5,
+    "effects": [
+      {
+        "code": "burn",
+        "value": 10
+      }
+    ],
     "min_gold": 0,
     "max_gold": 25,
     "drops": [
@@ -960,48 +1096,25 @@
     ]
   },
   {
-    "name": "Krampus",
-    "code": "krampus",
-    "level": 40,
-    "hp": 2000,
-    "attack_fire": 0,
-    "attack_earth": 75,
-    "attack_water": 75,
-    "attack_air": 0,
-    "res_fire": 0,
-    "res_earth": -20,
-    "res_water": -30,
-    "res_air": 0,
-    "min_gold": 0,
-    "max_gold": 15,
-    "drops": [
-      {
-        "code": "krampus_horn",
-        "rate": 10,
-        "min_quantity": 1,
-        "max_quantity": 2
-      },
-      {
-        "code": "gift",
-        "rate": 70,
-        "min_quantity": 1,
-        "max_quantity": 1
-      }
-    ]
-  },
-  {
     "name": "Efreet Sultan",
     "code": "efreet_sultan",
     "level": 45,
     "hp": 3600,
-    "attack_fire": 80,
+    "attack_fire": 70,
     "attack_earth": 0,
     "attack_water": 0,
-    "attack_air": 80,
+    "attack_air": 70,
     "res_fire": 50,
     "res_earth": 0,
     "res_water": 50,
     "res_air": 0,
+    "critical_strike": 5,
+    "effects": [
+      {
+        "code": "burn",
+        "value": 20
+      }
+    ],
     "min_gold": 0,
     "max_gold": 30,
     "drops": [

@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+from datetime import datetime, timezone
 
 # with open('move_0.json', 'w') as f:
 #             content = json.dumps(response, indent=2)
@@ -31,9 +32,9 @@ skills = [
 ]
 
 stats = [
-    'haste', 'critical_strike', 'stamina',
+    'haste', 'critical_strike', 'wisdom', 'prospecting',
     'attack_fire', 'attack_earth', 'attack_water', 'attack_air',
-    'dmg_fire', 'dmg_earth', 'dmg_water', 'dmg_air', 'res_fire',
+    'dmg', 'dmg_fire', 'dmg_earth', 'dmg_water', 'dmg_air', 'res_fire',
     'res_earth', 'res_water', 'res_air',
 ]
 
@@ -44,17 +45,18 @@ char_info_list = [
 ]
 
 clothes = [   
-    'weapon_slot', 'shield_slot', 'helmet_slot', 'body_armor_slot',
+    'weapon_slot', 'rune_slot', 'shield_slot', 'helmet_slot', 'body_armor_slot',
     'leg_armor_slot', 'boots_slot', 'ring1_slot', 'ring2_slot',
     'amulet_slot', 'artifact1_slot', 'artifact2_slot',
     'artifact3_slot', 'utility1_slot', 'utility1_slot_quantity',
-    'utility2_slot', 'utility2_slot_quantity',
+    'utility2_slot', 'utility2_slot_quantity', 'bag_slot', 
 ]
 
 
 class Character:
     def __init__(self, name):
         self.name = name
+        self.npc_code = ''
 
         self.char_info = {}
         self.get_char_info()
@@ -63,6 +65,7 @@ class Character:
         self.char_info_list = char_info_list
         self.stats = stats
         self.clothes = clothes
+        self.npc = None
 
         with open(os.path.join(basedir, 'json', 'items.json'), 'r') as f:
             self.items = json.load(f)
@@ -85,20 +88,16 @@ class Character:
         if response.status_code == 200:
             return response.json()
         else:
-            data = {}
+            data, error = {}, []
             response = response.json()
-            error = []
             error.append(f"Code: {response['error']['code']}")
             error.append(f"{response['error']['message']}")
-            data['new_data'] = error
+            data['data'] = error
+            data['error'] = 'error'
             return data
 
-    def _get(self, action, *args):
-        if action == 'get_map':
-            x, y = args
-            url = f"https://api.artifactsmmo.com/maps/{x}/{y}"
-        else:
-            url = f"https://api.artifactsmmo.com/my/{action}"
+    def _get(self, action):
+        url = f"https://api.artifactsmmo.com/{action}"
         response = requests.get(url, headers=headers)
         return self._json(response)
 
@@ -107,11 +106,11 @@ class Character:
         response = requests.post(url, json=payload, headers=headers)
         return self._json(response)
               
-    def move(self, x, y):
+    def move(self, info):
         answer = {}
-        payload = {"x": x, "y": y}
+        payload = {"x": info['x'], "y": info['y']}
         response = self._post('move', payload=payload)
-        if 'new_data' in response:
+        if 'error' in response:
             return response
         else:
             self.char_info = response['data']['character']
@@ -125,16 +124,18 @@ class Character:
                 answer['code'] = response['data']['destination']['content']['code']
                 data.append(f"Content type: {str(response['data']['destination']['content']['type'])}.")
                 data.append(f"Content: {str(response['data']['destination']['content']['code'])}.")
-            answer['new_data'] = data
+                if response['data']['destination']['content']['type'] == 'npc':
+                    self.npc_code = response['data']['destination']['content']['code']
+            answer['data'] = data
             answer['name'] = response['data']['destination']['name']
             cooldown = response['data']['cooldown']['total_seconds']
             answer['cooldown'] = cooldown
             return answer
 
-    def fight(self):
+    def fight(self, info):
         answer = {}
         response = self._post('fight')
-        if 'new_data' in response:
+        if 'error' in response:
             return response
         else:
             self.char_info = response['data']['character']
@@ -151,16 +152,18 @@ class Character:
                 data.append(drop_text)
             data.append(f"Turns: {response['data']['fight']['turns']}")
             data.append(f"Result: {response['data']['fight']['result']}")
-            answer['new_data'] = data
+            answer['data'] = data
             cooldown = response['data']['cooldown']['total_seconds']
             answer['cooldown'] = cooldown
             return answer
 
-    def logs(self):
-        answer = {}
-        data = []
-        response = self._get('logs')['data']
-        for log in range(0, 50):
+    def logs(self, info):
+        answer, data = {}, []
+        response = self._get('my/logs')['data']
+        number_of_logs = len(response)
+        if number_of_logs > 50:
+            number_of_logs = 50
+        for log in range(number_of_logs):
             text = f'{log}. --' + response[log]['type'].capitalize() + '--\n'
             text += f"Description: {response[log]['description']}\n"
             if response[log]['type'] == 'rest':
@@ -174,13 +177,13 @@ class Character:
                 for key, value in response[log]['content']['drops'].items():
                     text += f"  {key}: {value}\n"
             data.append(text)
-        answer['new_data'] = data
+        answer['data'] = data
         return answer
     
-    def rest(self):
+    def rest(self, info):
         answer = {}
         response = self._post('rest')
-        if 'new_data' in response:
+        if 'error' in response:
             return response
         else:
             self.char_info = response['data']['character']
@@ -189,15 +192,15 @@ class Character:
             data.append('--Rest--')
             data.append(f"Cooldown: {str(response['data']['cooldown']['total_seconds'])} sec.")
             data.append(f"Hp restored: {response['data']['hp_restored']}.")
-            answer['new_data'] = data
+            answer['data'] = data
             cooldown = response['data']['cooldown']['total_seconds']
             answer['cooldown'] = cooldown
             return answer
     
-    def map(self, x, y):
+    def map(self, info):
         answer = {}
-        response = self._get('get_map', x, y)
-        if 'new_data' in response:
+        response = self._get('/'.join(['maps', info['x'], info['y']]))
+        if 'error' in response:
             return response
         else:
             data = []
@@ -210,14 +213,16 @@ class Character:
                 answer['code'] = response['data']['content']['code']
                 data.append(f"Content type: {str(response['data']['content']['type'])}.")
                 data.append(f"Content: {str(response['data']['content']['code'])}.")
-            answer['new_data'] = data
+                if response['data']['content']['type'] == 'npc':
+                    self.npc_code = response['data']['content']['code']
+            answer['data'] = data
             answer['name'] = response['data']['name']
             return answer
 
-    def gathering(self):
+    def gathering(self, info):
         answer = {}
         response = self._post('gathering')
-        if 'new_data' in response:
+        if 'error' in response:
             return response
         else:
             self.char_info = response['data']['character']
@@ -231,16 +236,16 @@ class Character:
                 item_text += f"Drop: {response['data']['details']['items'][item]['code']} \n"
                 item_text += f"Quantity: {response['data']['details']['items'][item]['quantity']}"
                 data.append(item_text)
-            answer['new_data'] = data
+            answer['data'] = data
             cooldown = response['data']['cooldown']['total_seconds']
             answer['cooldown'] = cooldown
             return answer
 
-    def craft(self, item_code, quantity):
+    def craft(self, info):
         answer, data, text = {}, [], ''
-        payload = {"code": item_code, "quantity": quantity}
+        payload = {"code": info['text'], "quantity": info['quantity']}
         response = self._post('crafting', payload=payload)
-        if 'new_data' in response:
+        if 'error' in response:
             return response
         else:
             response = response['data']
@@ -251,12 +256,13 @@ class Character:
             for k, v in response['details'].items():
                 text += f"{k}: {v}\n"
             data.append(text)
-            answer['new_data'] = data
+            answer['data'] = data
             cooldown = response['cooldown']['total_seconds']
             answer['cooldown'] = cooldown
             return answer
     
-    def view_info_about_char(self, list_to_view):
+    def view_info_about_char(self, info):
+        list_to_view = info['button_name']
         if list_to_view == 'char info':
             list_to_view = 'char_info_list'
         answer, data, text = {}, [], ''
@@ -316,10 +322,13 @@ class Character:
                 text = f'{item}'.capitalize() + ': '
                 text += str(self.char_info[item])
                 data.append(text)
-        answer['new_data'] = data
+        answer['data'] = data
         return answer
     
-    def equip_unequip(self, action, item_info, quantity):
+    def equip_unequip(self, info):
+        action = info['button_name']
+        quantity = info['quantity']
+        item_info = info['text']
         answer = {}
         slot = ''
         item_info = item_info.split()
@@ -332,7 +341,7 @@ class Character:
                     slot = self.items[i]['type']
         payload = {"code": item, 'slot': slot, "quantity": quantity}
         response = self._post(action, payload=payload)
-        if 'new_data' in response:
+        if 'error' in response:
             return response
         else:
             self.char_info = response['data']['character']
@@ -343,16 +352,17 @@ class Character:
             text += f"Item code: {response['data']['item']['code']}\n"
             text += f"Slot: {response['data']['slot']}"
             data.append(text)
-            answer['new_data'] = data
+            answer['data'] = data
             cooldown = response['data']['cooldown']['total_seconds']
             answer['cooldown'] = cooldown
             return answer
     
-    def get_crafted_items_by_skills(self, skill):
+    def get_crafted_items_by_skills(self, info):
         answer, data = {}, []
+        skill = info['text']
         if skill == '':
             data.append('Type needed skill for search')
-            answer['new_data'] = data
+            answer['data'] = data
             return answer
        
         text = f'--All recipeis for {skill} skill--\n\n'
@@ -370,15 +380,16 @@ class Character:
                     text += f"{self.items[i]['craft']['items']} \n"
                 text += f"Tradeable: {self.items[i]['tradeable']}\n\n"
         data.append(text)
-        answer['new_data'] = data
+        answer['data'] = data
         return answer
     
-    def get_item_info(self, item):
+    def get_item_info(self, info):
+        item = info['text']
         answer, data = {}, []
         crafted_items = [f"\nItems can be crafted with {item}:"]
         if item == '':
             data.append('Type item code to get info.')
-            answer['new_data'] = data
+            answer['data'] = data
             return answer
         
         for i in range(len(self.items)):
@@ -395,18 +406,19 @@ class Character:
         if len(crafted_items) > 1:
             crafted_items = tuple(crafted_items)
             data.extend(crafted_items)
-        answer['new_data'] = data
+        answer['data'] = data
         return answer
     
-    def get_monster_info(self, monster):
+    def get_monster_info(self, info):
+        monster = info['text']
         attack_resist_list = ['attack_fire', 'attack_earth',
             'attack_water', 'attack_air', 'res_fire', 'res_earth',
             'res_water', 'res_air']
 
         answer, data, text = {}, [], ''
         if monster == '':
-            data.append('Type item code to get info.')
-            answer['new_data'] = data
+            data.append('Type monster name to get info.')
+            answer['data'] = data
             return answer
         
         for i in range(len(self.monsters)):
@@ -426,19 +438,21 @@ class Character:
                     for key, value in self.monsters[i]['drops'][drop].items():
                         text += f"    {key}: {value}\n"                    
                 data.append(text)
-        answer['new_data'] = data
+        answer['data'] = data
         return answer
     
-    def task_action(self, action, quantity=0):
+    def task_action(self, info):
         # Accept new task, cancel task, complete task
         # Exchange task coins on items
+        action = info['button_name']
+        action = action.replace('task', '').strip()
         answer, data, text = {}, [], ''
-        response = self._post(action)
-        if 'new_data' in response:
+        response = self._post(f'task/{action}')
+        if 'error' in response:
             return response
         response = response['data']
         self.char_info = response['character']
-        if action == 'task/new':
+        if action == 'new':
             text = f"Code: {response['task']['code']}\n"
             text += f"Type: {response['task']['type']}\n"
             text += f"Total: {response['task']['total']}\n"
@@ -448,28 +462,30 @@ class Character:
                 for k, v in response['task']['rewards']['items'][i].items():
                     text += f"  {k}: {v}\n"
             
-        elif action in ('task/complete', 'task/exchange'):
+        elif action in ('complete', 'exchange'):
             text = "--Rewards--\n"
             text += f"Gold: {response['rewards']['gold']}\n"
             for i in range(len(response['rewards']['items'])):
                 for k, v in response['rewards']['items'][i].items():
                     text += f"{k}: {v}\n"                
 
-        elif action == 'task/cancel':
+        elif action == 'cancel':
             text += "Task canceled"
 
         data.append(text)
-        answer['new_data'] = data
+        answer['data'] = data
         cooldown = response['cooldown']['total_seconds']
         answer['cooldown'] = cooldown
         return answer
 
-    def task(self, item, quantity):
+    def task_trade(self, info):
         # Task trade
+        item = info['text']
+        quantity =  info['quantity']
         answer, data, text = {}, [], ''
         payload = {'code': item, 'quantity': quantity}
         response = self._post('task/trade', payload=payload)
-        if 'new_data' in response:
+        if 'error' in response:
             return response
         response = response['data']
         self.char_info = response['character']
@@ -478,18 +494,20 @@ class Character:
         for k, v in response['trade'].items():
             text = f"{k}: {v}"
             data.append(text)
-        answer['new_data'] = data
+        answer['data'] = data
         cooldown = response['cooldown']['total_seconds']
         answer['cooldown'] = cooldown
         return answer
 
     
-    def use(self, item, quantity):
+    def use_item(self, info):
         # Use item.
+        item = info['text']
+        quantity = info['quantity']
         answer, data, text = {}, [], ''
         payload = {"code": item, "quantity": quantity}
         response = self._post('use', payload=payload)
-        if 'new_data' in response:
+        if 'error' in response:
             return response
         else:
             response = response['data']
@@ -500,16 +518,18 @@ class Character:
             for key, value in response['item'].items():
                 text = f"{key}: {value}"
                 data.append(text)
-            answer['new_data'] = data
+            answer['data'] = data
             cooldown = response['cooldown']['total_seconds']
             answer['cooldown'] = cooldown
             return answer
 
-    def recycling(self, item, quantity):
+    def recycling(self, info):
+        item = info['text']
+        quantity = info['quantity']
         answer, data, text = {}, [], ''
         payload = {"code": item, "quantity": quantity}
         response = self._post('recycling', payload=payload)
-        if 'new_data' in response:
+        if 'error' in response:
             return response
         else:
             response = response['data']
@@ -521,17 +541,19 @@ class Character:
                 for key, value in response['details']['items'][i].items():
                     text = f"{key}: {value}"
                     data.append(text)
-            answer['new_data'] = data
+            answer['data'] = data
             cooldown = response['cooldown']['total_seconds']
             answer['cooldown'] = cooldown
             return answer
         
-    def delete(self, item, quantity):
+    def delete_item(self, info):
         # delete item
+        item = info['text']
+        quantity = info['quantity']
         answer, data, text = {}, [], ''
         payload = {"code": item, "quantity": quantity}
         response = self._post('delete', payload=payload)
-        if 'new_data' in response:
+        if 'error' in response:
             return response
         else:
             response = response['data']
@@ -542,7 +564,7 @@ class Character:
             for key, value in response['item'].items():
                 text = f"{key}: {value}"
                 data.append(text)
-            answer['new_data'] = data
+            answer['data'] = data
             cooldown = response['cooldown']['total_seconds']
             answer['cooldown'] = cooldown
             return answer
@@ -551,7 +573,7 @@ class Character:
         answer, data, text = {}, [], ''
         payload = {"code": item, "quantity": quantity}
         response = self._post(action, payload=payload)
-        if 'new_data' in response:
+        if 'error' in response:
             return response
         else:
             response = response['data']
@@ -562,7 +584,7 @@ class Character:
             for key, value in response['item'].items():
                 text = f"{key}: {value}"
                 data.append(text)
-            answer['new_data'] = data
+            answer['data'] = data
             cooldown = response['cooldown']['total_seconds']
             answer['cooldown'] = cooldown
 
@@ -574,19 +596,23 @@ class Character:
                 f.write(json.dumps(self.bank, indent=2))
             return answer
         
-    def deposit(self, item, quantity):
+    def deposit(self, info):
         # Deposit item into the bank
+        item = info['text']
+        quantity = info['quantity']
         return self._deposit_withdraw('bank/deposit', item, quantity, 'deposited')
         
-    def withdraw(self, item, quantity):
+    def withdraw(self, info):
         # Withdraw item from the bank
+        item = info['text']
+        quantity = info['quantity']
         return self._deposit_withdraw('bank/withdraw', item, quantity, 'withdrawed')
 
     def _deposit_withdraw_gold(self, action, quantity, action_text):
         answer, data, text = {}, [], ''
         payload = {"quantity": quantity}
         response = self._post(action, payload=payload)
-        if 'new_data' in response:
+        if 'error' in response:
             return response
         else:
             response = response['data']
@@ -595,7 +621,7 @@ class Character:
             data.append(f'--Gold {action_text}--')
             data.append(f"Cooldown: {str(response['cooldown']['total_seconds'])}.")
             data.append(f"Quantity of gold: {response['bank']['quantity']}")           
-            answer['new_data'] = data
+            answer['data'] = data
             cooldown = response['cooldown']['total_seconds']
             answer['cooldown'] = cooldown
 
@@ -604,13 +630,31 @@ class Character:
                 f.write(json.dumps(self.bank, indent=2))
             return answer
 
-    def deposit_gold(self, quantity):
+    def deposit_gold(self, info):
+        quantity = info['quantity']
         return self._deposit_withdraw_gold('bank/deposit/gold', quantity, 'deposited')
 
-    def withdraw_gold(self, quantity):
+    def withdraw_gold(self, info):
+        quantity = info['quantity']
         return self._deposit_withdraw_gold('bank/withdraw/gold', quantity, 'withdrawed')
+    
+    def buy_bank_expansion(self, info):
+        response = self._post('bank/buy_expansion')
+        if 'error' in response:
+            return response
+        else:
+            answer, data = {}, []
+            response = response['data']
+            self.char_info = response['character']
+            
+            data.append('--Bank expansion has bought--')
+            data.append(f"Cooldown: {str(response['cooldown']['total_seconds'])}.")
+            data.append(f"Price: {str(response['transaction']['price'])}")
+            answer['data'] = data
+            answer['cooldown'] = response['cooldown']['total_seconds']
+            return answer
 
-    def maps(self):
+    def maps(self, info):
         answer, data = {}, []
         for i in range(len(self.maps_data)):
             if self.maps_data[i]['content']:
@@ -621,5 +665,173 @@ class Character:
                 for k,v in self.maps_data[i]['content'].items():
                     text += f'  {k}: {v}\n'
                 data.append(text)
-        answer['new_data'] = data
+        answer['data'] = data
         return answer
+
+    def get_active_events(self, info):
+        response = self._get('events/active')
+        if 'error' in response:
+            return response
+        else:
+            answer, data = {}, []
+            response = response['data']
+
+            data.append('--Active events--')
+            for event in response:                
+                data.append(f"Name: {event['name']}")
+                data.append(f"X: {event['map']['x']}, Y: {event['map']['y']}")
+                data.append(f"Duration: {event['duration']}")
+                time_now = now = datetime.now(timezone.utc)
+                expired_time = datetime.fromisoformat(event['expiration']).astimezone()
+                data.append(f"Expiration: {str(expired_time)[:16]}")
+                data.append(f"Created_at: {str(datetime.fromisoformat(event['created_at']).astimezone())[:16]}")
+                data.append(f"Time left: {str(expired_time - time_now)[:4]}\n")
+            answer['data'] = data
+            return answer
+        
+    def npc_buy_sell_item(self, info):
+        item = info['text']
+        quantity = info['quantity']
+        action = info['button_name'].lower().split()[0]
+        payload = {'code': item, 'quantity': quantity}
+        response = self._post(f"npc/{action}", payload=payload)
+        if 'error' in response:
+            return response
+        else:
+            answer, data = {}, []
+            response = response['data']
+            self.char_info = response['character']
+            
+            if action == 'buy':
+                action = 'bought'
+            else:
+                action = 'sold'
+            data.append(f'--Item {action}--')
+            data.append(f"Cooldown: {str(response['cooldown']['total_seconds'])}.")
+            for key, value in response['transaction'].items():
+                data.append(f"{key}: {value}")
+            answer['data'] = data
+            answer['cooldown'] = response['cooldown']['total_seconds']
+            return answer
+
+    def get_npc_items(self, info):
+        response = self._get(f"npcs/{self.npc_code}/items")
+        if 'error' in response:
+            return response
+        else:
+            answer, data = {}, []
+            response = response['data']
+            
+            data.append(f'--{self.npc_code} has items for sell--\n')
+            for item in response:
+                for key, value in item.items():
+                    data.append(f"{key}: {value}")
+                data.append('')
+            answer['data'] = data
+            return answer
+        
+    def ge_buy_item(self, info):
+        id = info['text']
+        quantity = info['quantity']
+        payload = {'id': id, 'quantity': quantity}
+        response = self._post(f"grandexchange/buy", payload=payload)
+        if 'error' in response:
+            return response
+        else:
+            answer, data = {}, []
+            response = response['data']
+            self.char_info = response['character']
+            
+            data.append('--Item bought--')
+            data.append(f"Cooldown: {str(response['cooldown']['total_seconds'])}.")
+            for key, value in response['order'].items():
+                data.append(f"{key}: {value}")
+            answer['data'] = data
+            answer['cooldown'] = response['cooldown']['total_seconds']
+            return answer
+
+    def ge_cancel_sell_order(self, info):
+        id = info['text']
+        payload = {'id': id}
+        response = self._post("grandexchange/cancel", payload=payload)
+        if 'error' in response:
+            return response
+        else:
+            answer, data = {}, []
+            response = response['data']
+            self.char_info = response['character']
+            
+            data.append(f'--Order canceled--')
+            data.append(f"Cooldown: {str(response['cooldown']['total_seconds'])}.")
+            for key, value in response['order'].items():
+                data.append(f"{key}: {value}")
+            answer['data'] = data
+            answer['cooldown'] = response['cooldown']['total_seconds']
+            return answer
+        
+    def ge_create_sell_order(self, info):
+        answer, data = {}, []
+        if len(info['text'].split()) < 2:
+            data.append('Text must contain item_code and price.')
+            answer['data'] = data
+            return answer
+        item = info['text'].split()[0]
+        price = info['text'].split()[1]
+        quantity = info['quantity']
+        payload = {'code': item, 'quantity': quantity, 'price': price}
+        response = self._post("grandexchange/sell", payload=payload)
+        if 'error' in response:
+            return response
+        else:
+            response = response['data']
+            self.char_info = response['character']
+            
+            data.append(f'--Sell order created--')
+            data.append(f"Cooldown: {str(response['cooldown']['total_seconds'])}.")
+            for key, value in response['order'].items():
+                data.append(f"{key}: {value}")
+            answer['data'] = data
+            answer['cooldown'] = response['cooldown']['total_seconds']
+            return answer
+
+    def ge_get_sell_orders(self, info):
+        answer = {}
+        response = self._get('grandexchange/orders')
+        if 'error' in response:
+            return response
+        else:
+            data = []
+            data.append('--Sell orders--')
+            data.append(f"Total orders: {response['total']}.")
+            data.append(f"Page number: {response['page']}")
+            data.append(f"Orders on page: {response['size']}")
+            data.append(f"Total pages: {response['pages']}\n")
+
+            for order in response['data']:
+                for k, v in order.items():
+                    data.append(f"{k}: {v}")
+                data.append('')
+
+            answer['data'] = data
+            return answer
+        
+    def ge_get_hystory(self, info):
+        answer = {}
+        response = self._get(f"grandexchange/history/{info['text']}")
+        if 'error' in response:
+            return response
+        else:
+            data = []
+            data.append('--Sell item hystory for the last 7 days--')
+            data.append(f"Total orders: {response['total']}.")
+            data.append(f"Page number: {response['page']}")
+            data.append(f"Orders on page: {response['size']}")
+            data.append(f"Total pages: {response['pages']}\n")
+
+            for order in response['data']:
+                for k, v in order.items():
+                    data.append(f"{k}: {v}")
+                data.append('')
+
+            answer['data'] = data
+            return answer
