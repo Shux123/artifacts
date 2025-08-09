@@ -50,11 +50,11 @@ Technologies Used
 Installation & Setup
 --------------------
 
-1.  bashCopyEditgit clone https://github.com//artifacts-client.gitcd artifacts-client
+1.  bashCopyEdit git clone https://github.com//artifacts-client.gitcd artifacts-client
     
-2.  bashCopyEditpip install -r requirements.txt
+2.  bashCopyEdit pip install -r requirements.txt
     
-3.  bashCopyEditexport ARTIFACTS\_TOKEN="your\_token\_here" # Linux/macOSsetx ARTIFACTS\_TOKEN "your\_token\_here" # Windows
+3.  bashCopyEdit export ARTIFACTS\_TOKEN="your\_token\_here" # Linux/macOSsetx ARTIFACTS\_TOKEN "your\_token\_here" # Windows
     
 4.  Create a character in the game and update CHAR\_NAME in main.py with your character’s name.
     
@@ -62,7 +62,7 @@ Installation & Setup
 Usage
 -----
 
-*   bashCopyEditpython main.py
+*   bashCopyEdit python main.py
     
 *   Use the GUI to:
     
@@ -81,11 +81,11 @@ Usage
 
 Example script:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   nginxCopyEditgathering 50   `
+nginxCopyEdit gathering 50
 
 Runs the "Gathering" action 50 times.Or chain actions:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cssCopyEditfight fight rest 10   `
+nginxCopyEdit fight fight rest 10
 
 Repeats the sequence _fight → fight → rest_ 10 times.
 
