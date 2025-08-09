@@ -1127,7 +1127,7 @@
     }
   },
   {
-    "name": "Forest",
+    "name": "City",
     "skin": "forest_alchemy1",
     "x": 2,
     "y": 3,
@@ -1137,11 +1137,14 @@
     }
   },
   {
-    "name": "Forest",
-    "skin": "forest_2",
+    "name": "City",
+    "skin": "forest_tailor1",
     "x": 3,
     "y": 3,
-    "content": null
+    "content": {
+      "type": "npc",
+      "code": "tailor"
+    }
   },
   {
     "name": "Forest",
@@ -1279,7 +1282,7 @@
     "y": 4,
     "content": {
       "type": "monster",
-      "code": "flying_serpent"
+      "code": "flying_snake"
     }
   },
   {
@@ -1299,7 +1302,7 @@
     "y": 4,
     "content": {
       "type": "monster",
-      "code": "flying_serpent"
+      "code": "flying_snake"
     }
   },
   {
@@ -1801,13 +1804,10 @@
   },
   {
     "name": "Forest",
-    "skin": "forest_cursed_tree1",
+    "skin": "forest_3",
     "x": 5,
     "y": 8,
-    "content": {
-      "type": "monster",
-      "code": "cursed_tree"
-    }
+    "content": null
   },
   {
     "name": "Forest",
@@ -1966,10 +1966,13 @@
   },
   {
     "name": "Forest",
-    "skin": "forest_2",
+    "skin": "forest_cursed_tree1",
     "x": 9,
     "y": 9,
-    "content": null
+    "content": {
+      "type": "monster",
+      "code": "cursed_tree"
+    }
   },
   {
     "name": "Forest",
@@ -2095,7 +2098,7 @@
   },
   {
     "name": "Forest",
-    "skin": "forest_1",
+    "skin": "forest_2",
     "x": 10,
     "y": 10,
     "content": null
@@ -2179,10 +2182,13 @@
   },
   {
     "name": "Forest",
-    "skin": "forest_1",
+    "skin": "forest_taskstrader1",
     "x": 5,
     "y": 11,
-    "content": null
+    "content": {
+      "type": "npc",
+      "code": "tasks_trader"
+    }
   },
   {
     "name": "Forest",
@@ -2307,10 +2313,13 @@
   },
   {
     "name": "Forest",
-    "skin": "forest_2",
+    "skin": "forest_sheep1",
     "x": 5,
     "y": 12,
-    "content": null
+    "content": {
+      "type": "monster",
+      "code": "sheep"
+    }
   },
   {
     "name": "Lake",
@@ -2420,10 +2429,13 @@
   },
   {
     "name": "Forest",
-    "skin": "forest_road4",
+    "skin": "forest_road4_cultistwizard",
     "x": 2,
     "y": 13,
-    "content": null
+    "content": {
+      "type": "npc",
+      "code": "cultist_wizard"
+    }
   },
   {
     "name": "Forest",
@@ -2451,12 +2463,12 @@
   },
   {
     "name": "Forest",
-    "skin": "forest_road5",
+    "skin": "forest_archaeologist1",
     "x": 6,
     "y": 13,
     "content": {
       "type": "npc",
-      "code": "rune_vendor"
+      "code": "archaeologist"
     }
   },
   {
@@ -2471,10 +2483,13 @@
   },
   {
     "name": "Forest",
-    "skin": "forest_2",
+    "skin": "forest_runevendor1",
     "x": 8,
     "y": 13,
-    "content": null
+    "content": {
+      "type": "npc",
+      "code": "rune_vendor"
+    }
   },
   {
     "name": "Forest",

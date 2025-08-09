@@ -1,9 +1,99 @@
-Client for MMO Artifacts.
-https://artifactsmmo.com/
+MMO Artifacts Client
+====================
 
-This is my first program on python. I just wanted to try things that I learnt. I see almost all drawbacks of my way to see the client for this game, but I needed to write something.
+A desktop client for [Artifacts MMO](https://artifactsmmo.com/) built with **Python**, **PySide6** for GUI, and the official **Artifacts MMO API** for real-time game interaction.
 
-To start play you need to get token from the site and save it to token.txt file. You need to create a character on the site of the game and then in file main.py you need to write the character's name on line 50.
-To use/create/equip/uneqip item you need to write its code in lineedit and push the correct button.
-Script can be as one word with number to repeat action, for example: gathering 50, or it can be sequence of action with number to repeat, for example: fight fight fight rest 100.
-For some items there must be also written slot for that item, for example: iron_ring ring1 1.
+Features
+--------
+
+*   **Full API integration** with Artifacts MMO:
+    
+    *   Character stats, skills, inventory, bank, tasks, events
+        
+    *   Actions: move, fight, gather, craft, trade, recycle, use items
+        
+    *   Bank and gold deposit/withdraw
+        
+    *   Grand Exchange buy/sell operations
+        
+*   **Interactive GUI** built with PySide6
+    
+    *   Dynamic location-based action buttons
+        
+    *   Real-time cooldown timer
+        
+    *   Scripted action execution (automation)
+        
+*   **JSON data handling**
+    
+    *   Items, monsters, bank data loaded from local JSON for fast access
+        
+*   **Error handling** for API requests
+    
+
+Technologies Used
+-----------------
+
+*   Python 3.x
+    
+*   PySide6 – GUI
+    
+*   Requests – HTTP requests
+    
+*   JSON – data storage and parsing
+    
+*   Object-Oriented Programming (OOP)
+    
+*   Threading via QThreadPool for cooldown timers
+    
+
+Installation & Setup
+--------------------
+
+1.  bashCopyEditgit clone https://github.com//artifacts-client.gitcd artifacts-client
+    
+2.  bashCopyEditpip install -r requirements.txt
+    
+3.  bashCopyEditexport ARTIFACTS\_TOKEN="your\_token\_here" # Linux/macOSsetx ARTIFACTS\_TOKEN "your\_token\_here" # Windows
+    
+4.  Create a character in the game and update CHAR\_NAME in main.py with your character’s name.
+    
+
+Usage
+-----
+
+*   bashCopyEditpython main.py
+    
+*   Use the GUI to:
+    
+    *   Move around the map
+        
+    *   Fight monsters
+        
+    *   Gather resources
+        
+    *   Craft and trade items
+        
+    *   View inventory, stats, and tasks
+        
+    *   Automate actions with the scripting tool
+        
+
+Example script:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   nginxCopyEditgathering 50   `
+
+Runs the "Gathering" action 50 times.Or chain actions:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cssCopyEditfight fight rest 10   `
+
+Repeats the sequence _fight → fight → rest_ 10 times.
+
+Screenshots
+-----------
+
+![Fighting a moster](screenshots/fight_moster.png)
+![Inventory](screenshots/inventory.png)
+![Bank](screenshots/bank.png)
+![Using scripts](screenshots/script.png)
+![Trade with other players](screenshots/trade_with_other_players.png)

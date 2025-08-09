@@ -108,6 +108,32 @@
     ]
   },
   {
+    "name": "Sheep",
+    "code": "sheep",
+    "level": 5,
+    "hp": 120,
+    "attack_fire": 0,
+    "attack_earth": 14,
+    "attack_water": 0,
+    "attack_air": 0,
+    "res_fire": 10,
+    "res_earth": 10,
+    "res_water": 10,
+    "res_air": 10,
+    "critical_strike": 0,
+    "effects": [],
+    "min_gold": 0,
+    "max_gold": 5,
+    "drops": [
+      {
+        "code": "wool",
+        "rate": 12,
+        "min_quantity": 1,
+        "max_quantity": 2
+      }
+    ]
+  },
+  {
     "name": "Blue Slime",
     "code": "blue_slime",
     "level": 6,
@@ -242,8 +268,8 @@
     ]
   },
   {
-    "name": "Flying Serpent",
-    "code": "flying_serpent",
+    "name": "Flying Snake",
+    "code": "flying_snake",
     "level": 12,
     "hp": 360,
     "attack_fire": 0,
@@ -266,7 +292,7 @@
         "max_quantity": 2
       },
       {
-        "code": "serpent_skin",
+        "code": "snake_hide",
         "rate": 12,
         "min_quantity": 1,
         "max_quantity": 2
@@ -468,7 +494,8 @@
     "effects": [
       {
         "code": "poison",
-        "value": 20
+        "value": 20,
+        "description": "At the start of its first turn, applies a 20 poison to its opponent. Loses 20 HP per turn."
       }
     ],
     "min_gold": 0,
@@ -476,7 +503,7 @@
     "drops": [
       {
         "code": "old_boots",
-        "rate": 200,
+        "rate": 300,
         "min_quantity": 1,
         "max_quantity": 1
       },
@@ -485,6 +512,50 @@
         "rate": 12,
         "min_quantity": 1,
         "max_quantity": 2
+      }
+    ]
+  },
+  {
+    "name": "Corrupted Ogre",
+    "code": "corrupted_ogre",
+    "level": 20,
+    "hp": 850,
+    "attack_fire": 0,
+    "attack_earth": 80,
+    "attack_water": 0,
+    "attack_air": 0,
+    "res_fire": 50,
+    "res_earth": 100,
+    "res_water": 70,
+    "res_air": 50,
+    "critical_strike": 5,
+    "effects": [
+      {
+        "code": "corrupted",
+        "value": 6,
+        "description": "After every time the bearer of this effect is attacked, their resistance to the attack's element is reduced by 6%, and can go negative."
+      }
+    ],
+    "min_gold": 0,
+    "max_gold": 10,
+    "drops": [
+      {
+        "code": "ogre_eye",
+        "rate": 12,
+        "min_quantity": 1,
+        "max_quantity": 1
+      },
+      {
+        "code": "ogre_skin",
+        "rate": 12,
+        "min_quantity": 1,
+        "max_quantity": 1
+      },
+      {
+        "code": "corrupted_gem",
+        "rate": 200,
+        "min_quantity": 1,
+        "max_quantity": 1
       }
     ]
   },
@@ -505,7 +576,8 @@
     "effects": [
       {
         "code": "lifesteal",
-        "value": 10
+        "value": 10,
+        "description": "Restores 10% of the total attack of all elements in HP after a critical strike."
       }
     ],
     "min_gold": 0,
@@ -542,7 +614,8 @@
     "effects": [
       {
         "code": "poison",
-        "value": 20
+        "value": 20,
+        "description": "At the start of its first turn, applies a 20 poison to its opponent. Loses 20 HP per turn."
       }
     ],
     "min_gold": 0,
@@ -563,12 +636,6 @@
       {
         "code": "lizard_skin",
         "rate": 10,
-        "min_quantity": 1,
-        "max_quantity": 1
-      },
-      {
-        "code": "dreadful_book",
-        "rate": 1500,
         "min_quantity": 1,
         "max_quantity": 1
       }
@@ -649,7 +716,8 @@
     "effects": [
       {
         "code": "burn",
-        "value": 15
+        "value": 15,
+        "description": "On your first turn, apply a burn effect of 15% of your attack of all elements. The damage is applied each turn and decreases by 10% each time."
       }
     ],
     "min_gold": 0,
@@ -718,7 +786,8 @@
     "effects": [
       {
         "code": "burn",
-        "value": 20
+        "value": 20,
+        "description": "On your first turn, apply a burn effect of 20% of your attack of all elements. The damage is applied each turn and decreases by 10% each time."
       }
     ],
     "min_gold": 0,
@@ -755,21 +824,66 @@
     "effects": [
       {
         "code": "reconstitution",
-        "value": 20
+        "value": 20,
+        "description": "At the beginning of the turn 20, regains all HP."
       }
     ],
     "min_gold": 0,
     "max_gold": 15,
     "drops": [
       {
-        "code": "life_crystal",
-        "rate": 2000,
+        "code": "life_crystal_shard",
+        "rate": 100,
         "min_quantity": 1,
         "max_quantity": 1
       },
       {
         "code": "lich_crown",
         "rate": 600,
+        "min_quantity": 1,
+        "max_quantity": 1
+      }
+    ]
+  },
+  {
+    "name": "Corrupted Owlbear",
+    "code": "corrupted_owlbear",
+    "level": 30,
+    "hp": 1100,
+    "attack_fire": 0,
+    "attack_earth": 0,
+    "attack_water": 100,
+    "attack_air": 0,
+    "res_fire": 70,
+    "res_earth": 50,
+    "res_water": 115,
+    "res_air": 70,
+    "critical_strike": 5,
+    "effects": [
+      {
+        "code": "corrupted",
+        "value": 6,
+        "description": "After every time the bearer of this effect is attacked, their resistance to the attack's element is reduced by 6%, and can go negative."
+      }
+    ],
+    "min_gold": 0,
+    "max_gold": 15,
+    "drops": [
+      {
+        "code": "owlbear_hair",
+        "rate": 12,
+        "min_quantity": 1,
+        "max_quantity": 1
+      },
+      {
+        "code": "owlbear_claw",
+        "rate": 12,
+        "min_quantity": 1,
+        "max_quantity": 1
+      },
+      {
+        "code": "corrupted_gem",
+        "rate": 100,
         "min_quantity": 1,
         "max_quantity": 1
       }
@@ -794,7 +908,7 @@
     "max_gold": 15,
     "drops": [
       {
-        "code": "magic_stone",
+        "code": "corrupted_stone",
         "rate": 12,
         "min_quantity": 1,
         "max_quantity": 2
@@ -824,7 +938,8 @@
     "effects": [
       {
         "code": "lifesteal",
-        "value": 5
+        "value": 5,
+        "description": "Restores 5% of the total attack of all elements in HP after a critical strike."
       }
     ],
     "min_gold": 0,
@@ -855,7 +970,8 @@
     "effects": [
       {
         "code": "healing",
-        "value": 5
+        "value": 5,
+        "description": "Every 3 played turns, restores 5% of HP at the start of the turn.\n"
       }
     ],
     "min_gold": 0,
@@ -868,8 +984,8 @@
         "max_quantity": 1
       },
       {
-        "code": "malefic_crystal",
-        "rate": 2000,
+        "code": "malefic_shard",
+        "rate": 100,
         "min_quantity": 1,
         "max_quantity": 1
       }
@@ -924,7 +1040,8 @@
     "effects": [
       {
         "code": "poison",
-        "value": 50
+        "value": 50,
+        "description": "At the start of its first turn, applies a 50 poison to its opponent. Loses 50 HP per turn."
       }
     ],
     "min_gold": 0,
@@ -990,31 +1107,13 @@
       },
       {
         "code": "rosenblood_elixir",
-        "rate": 160,
+        "rate": 120,
         "min_quantity": 1,
         "max_quantity": 1
       },
       {
-        "code": "topaz_book",
-        "rate": 2000,
-        "min_quantity": 1,
-        "max_quantity": 1
-      },
-      {
-        "code": "ruby_book",
-        "rate": 2000,
-        "min_quantity": 1,
-        "max_quantity": 1
-      },
-      {
-        "code": "emerald_book",
-        "rate": 2000,
-        "min_quantity": 1,
-        "max_quantity": 1
-      },
-      {
-        "code": "sapphire_book",
-        "rate": 2000,
+        "code": "elemental_page",
+        "rate": 100,
         "min_quantity": 1,
         "max_quantity": 1
       }
@@ -1069,7 +1168,8 @@
     "effects": [
       {
         "code": "burn",
-        "value": 10
+        "value": 10,
+        "description": "On your first turn, apply a burn effect of 10% of your attack of all elements. The damage is applied each turn and decreases by 10% each time."
       }
     ],
     "min_gold": 0,
@@ -1098,7 +1198,7 @@
   {
     "name": "Efreet Sultan",
     "code": "efreet_sultan",
-    "level": 45,
+    "level": 42,
     "hp": 3600,
     "attack_fire": 70,
     "attack_earth": 0,
@@ -1112,7 +1212,8 @@
     "effects": [
       {
         "code": "burn",
-        "value": 20
+        "value": 20,
+        "description": "On your first turn, apply a burn effect of 20% of your attack of all elements. The damage is applied each turn and decreases by 10% each time."
       }
     ],
     "min_gold": 0,
@@ -1125,8 +1226,52 @@
         "max_quantity": 1
       },
       {
-        "code": "book_from_hell",
-        "rate": 1000,
+        "code": "page_from_hell",
+        "rate": 50,
+        "min_quantity": 1,
+        "max_quantity": 1
+      }
+    ]
+  },
+  {
+    "name": "Grimlet",
+    "code": "grimlet",
+    "level": 45,
+    "hp": 7000,
+    "attack_fire": 0,
+    "attack_earth": 0,
+    "attack_water": 150,
+    "attack_air": 0,
+    "res_fire": 90,
+    "res_earth": 70,
+    "res_water": 90,
+    "res_air": 50,
+    "critical_strike": 5,
+    "effects": [
+      {
+        "code": "corrupted",
+        "value": 10,
+        "description": "After every time the bearer of this effect is attacked, their resistance to the attack's element is reduced by 10%, and can go negative."
+      }
+    ],
+    "min_gold": 0,
+    "max_gold": 30,
+    "drops": [
+      {
+        "code": "grimlet_bone",
+        "rate": 12,
+        "min_quantity": 1,
+        "max_quantity": 2
+      },
+      {
+        "code": "page_from_hell",
+        "rate": 50,
+        "min_quantity": 1,
+        "max_quantity": 1
+      },
+      {
+        "code": "corrupted_gem",
+        "rate": 5,
         "min_quantity": 1,
         "max_quantity": 1
       }

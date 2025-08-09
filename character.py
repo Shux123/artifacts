@@ -1,23 +1,17 @@
 import requests
 import json
 import os
-from datetime import datetime, timezone
-
-# with open('move_0.json', 'w') as f:
-#             content = json.dumps(response, indent=2)
-#             f.write(content)
+from datetime import datetime
 
 basedir = os.path.dirname(__file__)
 
-with open(os.path.join(basedir, 'token.txt'), 'r') as f:
-    token = f.read()
+TOKEN = os.environ.get('ARTIFACTS_TOKEN')
 
 headers = {
         "Content-Type": "application/json",
         "Accept": "application/json",
-        "Authorization": f"Bearer {token}"
+        "Authorization": f"Bearer {TOKEN}"
     }
-
 
 # Lists to display different info about a character
 skills = [
@@ -96,9 +90,9 @@ class Character:
             data['error'] = 'error'
             return data
 
-    def _get(self, action):
+    def _get(self, action, querystring=None):
         url = f"https://api.artifactsmmo.com/{action}"
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, params=querystring)
         return self._json(response)
 
     def _post(self, action, payload=None):
@@ -176,6 +170,7 @@ class Character:
                 text += "Drops: \n"
                 for key, value in response[log]['content']['drops'].items():
                     text += f"  {key}: {value}\n"
+            text += f"Cooldown: {response[log]['cooldown']}\n"
             data.append(text)
         answer['data'] = data
         return answer
@@ -571,7 +566,7 @@ class Character:
         
     def _deposit_withdraw(self, action, item, quantity, action_text):
         answer, data, text = {}, [], ''
-        payload = {"code": item, "quantity": quantity}
+        payload = [{"code": item, "quantity": quantity}]
         response = self._post(action, payload=payload)
         if 'error' in response:
             return response
@@ -581,17 +576,15 @@ class Character:
             
             data.append(f'--Item {action_text}--')
             data.append(f"Cooldown: {str(response['cooldown']['total_seconds'])}.")
-            for key, value in response['item'].items():
-                text = f"{key}: {value}"
-                data.append(text)
+            for i in range(len(response['items'])):
+                for key, value in response['items'][i].items():
+                    text = f"{key}: {value}"
+                    data.append(text)
             answer['data'] = data
             cooldown = response['cooldown']['total_seconds']
             answer['cooldown'] = cooldown
 
-            if action == 'bank/deposit':
-                self.bank['items'] = response['bank'][:-1]
-            else:
-                self.bank['items'] = response['bank']
+            self.bank['items'] = response['bank']
             with open(os.path.join(basedir, 'json', 'bank.json'), 'w') as f:
                 f.write(json.dumps(self.bank, indent=2))
             return answer
@@ -600,13 +593,13 @@ class Character:
         # Deposit item into the bank
         item = info['text']
         quantity = info['quantity']
-        return self._deposit_withdraw('bank/deposit', item, quantity, 'deposited')
+        return self._deposit_withdraw('bank/deposit/item', item, quantity, 'deposited')
         
     def withdraw(self, info):
         # Withdraw item from the bank
         item = info['text']
         quantity = info['quantity']
-        return self._deposit_withdraw('bank/withdraw', item, quantity, 'withdrawed')
+        return self._deposit_withdraw('bank/withdraw/item', item, quantity, 'withdrawed')
 
     def _deposit_withdraw_gold(self, action, quantity, action_text):
         answer, data, text = {}, [], ''
@@ -626,8 +619,6 @@ class Character:
             answer['cooldown'] = cooldown
 
             self.bank['gold'] = response['bank']['quantity']
-            with open(f'json_examples\\bank.json', 'w') as f:
-                f.write(json.dumps(self.bank, indent=2))
             return answer
 
     def deposit_gold(self, info):
@@ -681,11 +672,14 @@ class Character:
                 data.append(f"Name: {event['name']}")
                 data.append(f"X: {event['map']['x']}, Y: {event['map']['y']}")
                 data.append(f"Duration: {event['duration']}")
-                time_now = now = datetime.now(timezone.utc)
+                time_now = datetime.now().astimezone()
                 expired_time = datetime.fromisoformat(event['expiration']).astimezone()
-                data.append(f"Expiration: {str(expired_time)[:16]}")
-                data.append(f"Created_at: {str(datetime.fromisoformat(event['created_at']).astimezone())[:16]}")
-                data.append(f"Time left: {str(expired_time - time_now)[:4]}\n")
+                data.append(f"Expiration: {expired_time.strftime('%H:%M')}")
+                time_created = datetime.fromisoformat(event['created_at']).astimezone()
+                data.append(f"Created_at: {time_created.strftime('%H:%M')}")
+                time_delta = expired_time - time_now
+                time_left = (datetime.min + time_delta).time().strftime('%H:%M')
+                data.append(f"Time left: {time_left}\n")
             answer['data'] = data
             return answer
         
@@ -715,7 +709,7 @@ class Character:
             return answer
 
     def get_npc_items(self, info):
-        response = self._get(f"npcs/{self.npc_code}/items")
+        response = self._get(f"npcs/items/{self.npc_code}")
         if 'error' in response:
             return response
         else:
@@ -796,7 +790,8 @@ class Character:
 
     def ge_get_sell_orders(self, info):
         answer = {}
-        response = self._get('grandexchange/orders')
+        querystring = {'size': 100}
+        response = self._get('grandexchange/orders', querystring=querystring)
         if 'error' in response:
             return response
         else:

@@ -23,6 +23,7 @@ from PySide6.QtWidgets import (
     QLineEdit
 )
 
+CHAR_NAME = 'shuxart'
 FONT_SIZE = 18
 
 names_for_btns = {
@@ -37,7 +38,7 @@ names_for_btns = {
         'Cancel sell order', 'Get sell orders',
         'Sell item hystory'],
     'santa_claus': [],
-    'npc': ['Buy item', 'Sell item', 'Items in shop'],
+    'npc': ['Buy shop item', 'Sell item', 'Items in shop'],
     'right_btns_panel': ['Rest', 'Logs', 'Maps', 'Char info', 'Skills',
         'Stats', 'Clothes', 'Inventory', 'Bank',],
     'bottom_btns_panel': ['Equip', 'Unequip', 'Crafted by skills',
@@ -78,7 +79,7 @@ btns_names_to_action = {
     'Use Item': 'use_item',
     'Delete item': 'delete_item',
     'Events': 'get_active_events',
-    'Buy item': 'npc_buy_sell_item',
+    'Buy shop item': 'npc_buy_sell_item',
     'Sell item': 'npc_buy_sell_item',
     'Items in shop': 'get_npc_items',
     'Buy item': 'ge_buy_item',
@@ -110,7 +111,7 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
 
-        self.char = Character('shuxart')
+        self.char = Character(CHAR_NAME)
 
         self.threadpool = QThreadPool()
 
@@ -252,7 +253,7 @@ class MainWindow(QMainWindow):
         info['x'] = self.x_box.text()
         info['y'] = self.y_box.text()
         info['text'] = self.control_edit.text().lower()
-        info['quantity'] = self.number_edit.text()
+        info['quantity'] = int(self.number_edit.text())
         answer = getattr(self.char, action)(info)
                 
         if action in ('move', 'map'):
@@ -327,18 +328,9 @@ class MainWindow(QMainWindow):
         self.script_number.setValue(0)
 
     def find_text(self):
-        format = QTextCharFormat()
-        self.info_view.selectAll()
-        self.info_view.textCursor().mergeCharFormat(format)
-        format.setBackground(QColor(Qt.gray))
-        self.info_view.moveCursor(QTextCursor.Start)
-        word = self.control_edit.text()[0:-1]
-        while self.info_view.find(word):
-            text_cursor = self.info_view.textCursor()
-            text_cursor.select(QTextCursor.WordUnderCursor)
-            text_cursor.mergeCharFormat(format)
-            self.info_view.setTextCursor(text_cursor)
-        format.setBackground(QColor(Qt.white))
+        word = self.control_edit.text().strip().lower()
+        self.info_view.setFocus()
+        found = self.info_view.find(word)
 
 app = QApplication()
 window = MainWindow()

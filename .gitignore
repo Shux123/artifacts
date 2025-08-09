@@ -1,4 +1,4 @@
-**/__pycache__
-**/json_examples
-response.py
-token.txt
+__pycache__/
+json_examples/
+venv/
+/get_items_maps_monsters.py
