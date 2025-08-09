@@ -50,11 +50,11 @@ Technologies Used
 Installation & Setup
 --------------------
 
-1.  bashCopyEdit git clone https://github.com//artifacts-client.gitcd artifacts-client
+1.  git clone https://github.com//artifacts-client.gitcd artifacts-client
     
-2.  bashCopyEdit pip install -r requirements.txt
+2.  pip install -r requirements.txt
     
-3.  bashCopyEdit export ARTIFACTS\_TOKEN="your\_token\_here" # Linux/macOSsetx ARTIFACTS\_TOKEN "your\_token\_here" # Windows
+3.  export ARTIFACTS\_TOKEN="your\_token\_here" # Linux/macOSsetx ARTIFACTS\_TOKEN "your\_token\_here" # Windows
     
 4.  Create a character in the game and update CHAR\_NAME in main.py with your character’s name.
     
@@ -62,7 +62,7 @@ Installation & Setup
 Usage
 -----
 
-*   bashCopyEdit python main.py
+*   python main.py
     
 *   Use the GUI to:
     
@@ -81,11 +81,11 @@ Usage
 
 Example script:
 
-nginxCopyEdit gathering 50
+gathering 50
 
 Runs the "Gathering" action 50 times.Or chain actions:
 
-nginxCopyEdit fight fight rest 10
+fight fight rest 10
 
 Repeats the sequence _fight → fight → rest_ 10 times.
 
